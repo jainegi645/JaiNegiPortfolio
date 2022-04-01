@@ -3,7 +3,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import {Link} from 'react-scroll';
 import SearchBox from "./SearchBox";
-import logo from "../../Images/logowithoutbg.png";
+import logo from "../../images/logowithoutbg.png";
 
 function Navbar() {
   const[size,setSize] = useState(`0px`);
