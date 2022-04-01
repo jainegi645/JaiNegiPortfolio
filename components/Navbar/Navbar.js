@@ -3,7 +3,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import {Link} from 'react-scroll';
 import SearchBox from "./SearchBox";
-// import logo from "../../Images/logo.png";
 import logo from "../../Images/logowithoutbg.png";
 
 function Navbar() {
