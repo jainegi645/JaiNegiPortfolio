@@ -4,10 +4,9 @@ import LiteratureCard from "../components/Literature/LiteratureCard";
 
 const Blogs = () => {
   const [cards, setCards] = useState([]);
-  console.log(cards);
+  
   useEffect(() => {
     const fetchLiterature = async () => {
-      // https://dashboard-artist-ravi-dhar.herokuapp.com/api/literatures?populate=*
       let url = `https://dashboard-artist-ravi-dhar.herokuapp.com/api/literatures?populate=*`;
       await axios
         .get(url)
