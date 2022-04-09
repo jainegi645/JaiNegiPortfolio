@@ -3,25 +3,53 @@ import Slider from "react-slick";
 import axios from "axios";
 import Picture from "./Picture";
 import TextContainer from "./TextContainer";
+import { useQuery } from "react-query";
 
 export default function Carousel() {
   const [carousel, setCarousel] = useState([]);
-  console.log(carousel);
+  // console.log(carousel);
 
-  useEffect(() => {
-    const fetchCarousel = async () => {
-      let url = `https://dashboard-artist-ravi-dhar.herokuapp.com/api/home-carousels?populate=*`;
-      await axios
-        .get(url)
-        .then((response) => {
-          setCarousel(response.data.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
-    fetchCarousel();
-  }, []);
+  // useEffect(() => {
+  //   const fetchCarousel = async () => {
+  //     let url = `https://dashboard-artist-ravi-dhar.herokuapp.com/api/home-carousels?populate=*`;
+  //     await axios
+  //       .get(url)
+  //       .then((response) => {
+  //         setCarousel(response.data.data);
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
+  //   };
+  //   fetchCarousel();
+  // }, []);
+
+  const fetchCarousel = async () => {
+    let url = `https://dashboard-artist-ravi-dhar.herokuapp.com/api/home-carousels?populate=*`;
+    // await axios
+    //   .get(url)
+    //   .then((response) => {
+    //     setCarousel(response.data.data);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+
+    let res = await axios({
+      method: "get",
+      url,
+    });
+    return res;
+  };
+
+  //react query to fetch carousel data
+  const { isLoading, isError, data, error, status } = useQuery(
+    "carouselData",
+    fetchCarousel,
+    {
+      refetchOnWindowFocus: false,
+    }
+  );
 
   var settings = {
     dots: false,
@@ -67,19 +95,19 @@ export default function Carousel() {
 
       <div>
         <Slider {...settings} className="">
-          {carousel.map((item) => {
-            return (
-              <Picture
-                key={item.id}
-                src={item.attributes.carouselImage.data.attributes.url}
-                width={item.attributes.carouselImage.data.attributes.width}
-                height={item.attributes.carouselImage.data.attributes.height}
-                Title={item.attributes.title} 
-                Description={item.attributes.description} 
-
-              />
-            );
-          })}
+          {status === "success" &&
+            data.data.data.map((item) => {
+              return (
+                <Picture
+                  key={item.id}
+                  src={item.attributes.carouselImage.data.attributes.url}
+                  width={item.attributes.carouselImage.data.attributes.width}
+                  height={item.attributes.carouselImage.data.attributes.height}
+                  Title={item.attributes.title}
+                  Description={item.attributes.description}
+                />
+              );
+            })}
         </Slider>
       </div>
     </div>

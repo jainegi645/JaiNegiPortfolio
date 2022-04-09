@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import axios from "axios";
 
@@ -8,11 +8,8 @@ const formPopUp = () => {
   const [message, setMessage] = useState("");
   const [imageSelected, setImageSelected] = useState("");
   const [cloudinaryRes, setCloudinaryRes] = useState("");
-  console.log(cloudinaryRes);
-
 
   const uploadImage = async () => {
-    // console.log(imageSelected.name);
     const formData = new FormData();
     formData.append("file", imageSelected);
     formData.append("upload_preset", "qst3d3td");
@@ -22,21 +19,19 @@ const formPopUp = () => {
       .then((response) => {
         console.log(response);
         setCloudinaryRes(response.data);
-        console.log('this is  cloudinaryRes state',cloudinaryRes);
+        console.log("this is  cloudinaryRes state", cloudinaryRes);
       })
       .then(() => {
         sendEmail();
-        console.log("send mail incoveked");
+        console.log("send mail invoked");
       })
       .catch((error) => {
         console.log(error);
       });
-      // console.log(cloudinaryRes);
-      // sendEmail();
   };
 
-  const sendEmail = () => {
-    emailjs
+  const sendEmail = async() => {
+    await emailjs
       .send(
         "service_c0s0fyo",
         "template_6mcwm3e",
@@ -99,7 +94,7 @@ const formPopUp = () => {
             </div>
 
             <div className="modal-body relative p-4">
-              <form >
+              <form>
                 <div className="relative mb-4">
                   <label
                     htmlFor="name"
@@ -188,6 +183,7 @@ const formPopUp = () => {
             </div>
           </div>
         </div>
+        
       </div>
     </>
   );

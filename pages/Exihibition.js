@@ -1,5 +1,4 @@
 import React from "react";
-import joinUs from "../Images/joinUs.png";
 import Image from "next/image";
 import FormPopUp from "../components/Exihibition/FormPopUp";
 
