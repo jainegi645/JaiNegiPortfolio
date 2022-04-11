@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import LiteratureCard from "../components/Literature/LiteratureCard";
 import Navbar from "../components/Navbar/Navbar";
+import Fotter from "../components/Fotter/Fotter";
 
 
 const Blogs = () => {
@@ -52,6 +53,7 @@ const Blogs = () => {
         </div>
       </div>
     </section>
+    <Fotter/>
     </>
   );
 };

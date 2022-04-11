@@ -8,6 +8,8 @@ import { SRLWrapper } from "simple-react-lightbox";
 import newimg from "../images/FB_IMG_1634104293263.jpg";
 import Image from "next/image";
 import Navbar from "../components/Navbar/Navbar";
+import Fotter from "../components/Fotter/Fotter";
+
 const Catalouge = () => {
   const [catalouge, setCatalouge] = useState([]);
 
@@ -64,6 +66,8 @@ const Catalouge = () => {
           );
         })}
       </Masonry>
+     <Fotter/>
+
     </div>
   );
 };

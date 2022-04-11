@@ -1,5 +1,6 @@
 import React from "react";
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from 'react-markdown';
+import Link from "next/link"
 
 const LiteratureCard = (props) => {
   return (
@@ -23,6 +24,7 @@ const LiteratureCard = (props) => {
                 </div>
 
                 <div className="flex items-center flex-wrap p-6">
+                  <Link href="/FullLiteraturePage">
                     <a className="text-heroButton inline-flex items-center md:mb-2 lg:mb-0">
                       Learn More
                       <svg
@@ -38,6 +40,7 @@ const LiteratureCard = (props) => {
                         <path d="M12 5l7 7-7 7"></path>
                       </svg>
                     </a>
+                    </Link>
                   </div>
               </div>
         
