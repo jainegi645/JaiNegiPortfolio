@@ -9,7 +9,13 @@ module.exports = {
     extend: {
       colors: {
         navBg: "#2B8A8E",
+        heroButton: "#219ebc",
+        heroDescription:"#023e8a",
+        heroTitle:"#00afb9",
       },
+      fontFamily:{
+        'MainFont':[ 'Montserrat', 'sans-serif'],
+      }
     },
 
     important: true,

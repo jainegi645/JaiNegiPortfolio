@@ -26,14 +26,6 @@ export default function Carousel() {
 
   const fetchCarousel = async () => {
     let url = `https://dashboard-artist-ravi-dhar.herokuapp.com/api/home-carousels?populate=*`;
-    // await axios
-    //   .get(url)
-    //   .then((response) => {
-    //     setCarousel(response.data.data);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
 
     let res = await axios({
       method: "get",
@@ -63,6 +55,7 @@ export default function Carousel() {
     cssEase: "linear",
     fade: true,
     pauseOnHover: false,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024,
@@ -70,7 +63,7 @@ export default function Carousel() {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
-          dots: true,
+          dots: false,
         },
       },
       {

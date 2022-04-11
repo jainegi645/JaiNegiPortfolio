@@ -23,7 +23,7 @@ const LiteratureCard = (props) => {
                 </div>
 
                 <div className="flex items-center flex-wrap p-6">
-                    <a className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
+                    <a className="text-heroButton inline-flex items-center md:mb-2 lg:mb-0">
                       Learn More
                       <svg
                         className="w-4 h-4 ml-2"

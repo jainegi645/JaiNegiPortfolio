@@ -7,7 +7,7 @@ import { SRLWrapper } from "simple-react-lightbox";
 // import FullScreenImage from "../components/Catalouge/FullScreenImage";
 import newimg from "../images/FB_IMG_1634104293263.jpg";
 import Image from "next/image";
-
+import Navbar from "../components/Navbar/Navbar";
 const Catalouge = () => {
   const [catalouge, setCatalouge] = useState([]);
 
@@ -36,26 +36,24 @@ const Catalouge = () => {
 
   return (
     <div>
-      {/* <SRLWrapper>
-        <Image
-          className="bg-cover"
-          src={newimg}
-          height="100%"
-          width="100%"
-          srl_gallery_image="true"
-          alt="picute"
-        />
-      </SRLWrapper> */}
+      <Navbar />
+      <div className=" md:flex md:justify-between px-5 py-16 items-center">
+        <h2 className="lg:text-7xl text-5xl  lg:font-normal text-slate-700 dark:text-gray-100">
+          Catalouge
+        </h2>
 
+        <p className="mt-4 text-gray-500 dark:text-gray-400 lg:max-w-md text-xl">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum in sed
+          non alias, fugiat
+        </p>
+      </div>
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-
-          {/* <SRLWrapper elements={catalouge} /> */}
-      {catalouge.map((item) => {
-        return (
+        {catalouge.map((item) => {
+          return (
             <Test
               key={item.id}
               src={item.attributes.image.data.attributes.url}
@@ -63,10 +61,8 @@ const Catalouge = () => {
               height={item.attributes.image.data.attributes.height}
               title={item.attributes.title}
             />
-         
-        );
-      })}
-
+          );
+        })}
       </Masonry>
     </div>
   );
