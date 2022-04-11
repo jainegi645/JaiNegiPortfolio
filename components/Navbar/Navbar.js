@@ -3,7 +3,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 // import {Link} from 'react-scroll';
 import SearchBox from "./SearchBox";
-import logo from "../../images/logowithoutbg.png";
+import logo from "../../images/logoWithoutbg.png";
 import hamburger from "../../images/hamburger.png";
 import { useHistory } from "react-router-dom";
 import Link from "next/link";

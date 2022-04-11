@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../images/logowithoutbg.png";
+import logo from "../../images/logoWithoutbg.png";
 import Image from "next/image";
 
 const Fotter = () => {

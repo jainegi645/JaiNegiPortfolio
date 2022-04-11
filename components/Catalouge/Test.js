@@ -2,7 +2,6 @@ import React from "react";
 // import FullScreenImage from "./FullScreenImage";
 import { SRLWrapper } from "simple-react-lightbox";
 import Image from "next/image";
-import newimg from "../../images/FB_IMG_1634101947145.jpg";
 
 const test = (props) => {
   const options = {
