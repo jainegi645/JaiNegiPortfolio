@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Masonry from "react-masonry-css";
 import axios from "axios";
-import CatalougeImage from "../components/Catalouge/CatalougeImage";
 import Test from "../components/Catalouge/Test";
-import { SRLWrapper } from "simple-react-lightbox";
-// import FullScreenImage from "../components/Catalouge/FullScreenImage";
-import newimg from "../images/FB_IMG_1634104293263.jpg";
-import Image from "next/image";
 import Navbar from "../components/Navbar/Navbar";
 import Fotter from "../components/Fotter/Fotter";
 
