@@ -75,10 +75,10 @@ function Navbar() {
         className="fixed z-10 bg-white top-0 right-0 h-screen  ease-in-out"
         style={{ width: size }}
       >
-        <div className="pt-8 pl-3 w-11" onClick={closeNavbar}>
-          <img src="https://img.icons8.com/ios-glyphs/30/000000/long-arrow-right.png" />
+        <div className="pt-8  w-11" onClick={closeNavbar}>
+          <img className="ml-8" src="https://img.icons8.com/ios-glyphs/30/000000/long-arrow-right.png" />
         </div>
-        <div className="mobileNav-header  px-3 font-bold py-1 text-heroTitle">
+        <div className="mobileNav-header ml-5  px-3 font-bold py-1 text-heroTitle">
           Artist Ravi Dhar
         </div>
         <nav className=" mt-2 ">
@@ -140,7 +140,7 @@ function Navbar() {
           </ul>
           <div className="flex pt-6 ml-7 space-x-4">
             <a
-              href="https://www.instagram.com/insuranceservicepilani/"
+              // href="https://www.instagram.com/insuranceservicepilani/"
               className="w-10 h-2/4 lg:w-11 lg:h-2/4 cursor-pointer"
               target="_blank"
             >
@@ -150,7 +150,7 @@ function Navbar() {
               />
             </a>
             <a
-              href="https://www.facebook.com/insuranceservicepilani/"
+              // href="https://www.facebook.com/insuranceservicepilani/"
               className="w-10 h-2/4 lg:w-11 lg:h-2/4 cursor-pointer"
               target="_blank"
             >
@@ -160,12 +160,12 @@ function Navbar() {
               />
             </a>
             <a
-              href="https://goo.gl/maps/5n3KMaxyvccE9rrGA"
+              // href="https://goo.gl/maps/5n3KMaxyvccE9rrGA"
               className="w-10 h-1/4 lg:w-10 lg:h-2/4 cursor-pointer"
               target="_blank"
             >
               <img
-                href="https://goo.gl/maps/5n3KMaxyvccE9rrGA"
+                // href="https://goo.gl/maps/5n3KMaxyvccE9rrGA"
                 alt="google map"
                 src="https://img.icons8.com/color/40/000000/google-maps.png"
               />
