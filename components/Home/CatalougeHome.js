@@ -34,15 +34,15 @@ const CatalougeHome = () => {
 
   return (
     <div>
-      <section className=" dark:bg-gray-800">
+      <section className=" ">
         <div className="container px-6 py-8 mx-auto">
           <div className="items-center lg:flex justify-evenly">
             <div className="lg:w-1/2">
-              <h2 className="lg:text-7xl text-5xl  lg:font-normal text-slate-700 dark:text-gray-100">
+              <h2 className="lg:text-7xl text-5xl  lg:font-normal text-slate-700 ">
                 Catalouge
               </h2>
 
-              <p className="mt-4 text-gray-500 dark:text-gray-400 lg:max-w-md text-xl">
+              <p className="mt-4 text-gray-500  lg:max-w-md text-xl">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum
                 in sed non alias, fugiat, commodi nemo ut fugit corrupti dolorem
                 sequi ex veniam consequuntur id, maiores beatae ipsa omnis

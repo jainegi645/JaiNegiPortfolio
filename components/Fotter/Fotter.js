@@ -148,7 +148,7 @@ const Fotter = () => {
               </a>
             </p>
             <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-              Developed by - Jai Negi. Need a Website? I Can Help:8005619348
+              Developed by - Jai Negi. Need a Website? I Can Help: 8005619348
               {/* <a className="text-gray-500">
                 <svg
                   fill="currentColor"
