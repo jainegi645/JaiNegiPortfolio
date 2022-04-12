@@ -28,6 +28,7 @@
     "react-router-dom": "^6.3.0",
     "react-scroll": "^1.8.5",
     "react-slick": "^0.28.1",
+    "sharp": "^0.30.3",
     "simple-react-lightbox": "^3.6.9-0",
     "slick-carousel": "^1.8.1",
     "tw-elements": "^1.0.0-alpha12"
