@@ -25,10 +25,10 @@ const LiteratureHome = () => {
     <>
       <div className="md:flex bg-slate-50 justify-between md:px-12  px-6 py-7 md:py-14">
         <div>
-          <h2 className="lg:text-7xl text-5xl font-normal lg:font-normal text-slate-700 dark:text-gray-100">
+          <h2 className="lg:text-7xl text-5xl font-normal lg:font-normal text-slate-700 ">
             Literature
           </h2>
-          <p className="self-center mt-4  text-gray-500 dark:text-gray-400 text-xl ">
+          <p className="self-center mt-4  text-gray-500  text-xl ">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum in
             sed non alias,
           </p>
