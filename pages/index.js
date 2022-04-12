@@ -19,7 +19,7 @@ export default function Index() {
       <CatalougeHome/>
       <LiteratureHome/>
       {/* <ExhibitionHome/> */}
-      <FullLiteraturePage/>
+      {/* <FullLiteraturePage/> */}
       <Fotter/>
       </div>
     </SimpleReactLightbox>
