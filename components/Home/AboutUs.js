@@ -5,7 +5,7 @@ import Image from "next/image";
 const AboutUs = () => {
   return (
     <div>
-      <section className="bg-slate-50 dark:bg-gray-800">
+      <section className="bg-slate-50 ">
         <div className="container px-6 py-8 mx-auto">
           <div className="items-center lg:flex justify-evenly">
 
@@ -25,11 +25,11 @@ const AboutUs = () => {
 
 
             <div className="lg:w-1/2">
-              <h2 className="lg:text-7xl text-5xl font-normal lg:font-normal text-slate-700  dark:text-gray-100">
+              <h2 className="lg:text-7xl text-5xl font-normal lg:font-normal text-slate-700  ">
                 About Me
               </h2>
 
-              <p className="mt-4 text-gray-500 dark:text-gray-400 lg:max-w-md text-xl">
+              <p className="mt-4 text-gray-500  lg:max-w-md text-xl">
                 Hi I am Ravi Dhar,        
                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 Illum in sed non alias, fugiat, commodi nemo ut fugit corrupti
@@ -40,7 +40,7 @@ const AboutUs = () => {
               <div className="flex items-center mt-6 -mx-2">
                 <a className="mx-2" href="#" aria-label="Twitter">
                   <svg
-                    className="w-5 h-5 text-heroButton fill-current dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400"
+                    className="w-5 h-5 text-heroButton fill-current  hover:text-gray-600 "
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 512 512"
                   >
@@ -50,7 +50,7 @@ const AboutUs = () => {
 
                 <a className="mx-2" href="#" aria-label="Facebook">
                   <svg
-                    className="w-5 h-5 text-heroButton  fill-current dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400"
+                    className="w-5 h-5 text-heroButton  fill-current hover:text-gray-600 "
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 512 512"
                   >
