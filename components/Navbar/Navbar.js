@@ -94,7 +94,7 @@ function Navbar() {
               
             </Link>
             <Link
-              href="/About Us"
+              href="/"
               smooth={true}
               duration={1000}
             >

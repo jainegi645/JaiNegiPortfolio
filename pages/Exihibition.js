@@ -12,10 +12,10 @@ const Exihibition = () => {
       <Navbar />
       <div className=" md:flex md:justify-between px-5 py-16 items-center">
         <div>
-        <h2 className="lg:text-7xl text-5xl  lg:font-normal text-slate-700 dark:text-gray-100">
+        <h2 className="lg:text-7xl text-5xl  lg:font-normal text-slate-700 ">
           Exihibition
         </h2>
-        <p className="mt-4 text-gray-500 dark:text-gray-400 lg:max-w-xl text-xl">
+        <p className="mt-4 text-gray-500 lg:max-w-xl text-xl">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum in sed
           non alias, fugiat
         </p>
