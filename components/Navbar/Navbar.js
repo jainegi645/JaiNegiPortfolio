@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 // import {Link} from 'react-scroll';
-import logo from "../../images/logowithoutbg.png";
-import hamburger from "../../images/hamburger.png";
+import logo from "../../public/logowithoutbg.png";
+import hamburger from "../../public/hamburger.png";
 import Link from "next/link";
 
 function Navbar() {

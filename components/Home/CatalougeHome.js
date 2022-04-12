@@ -1,5 +1,5 @@
 import React from "react";
-import aboutMe from "../../images/aboutme.jpg";
+// import aboutMe from "../../public/aboutme.jpg";
 import Image from "next/image";
 import { useQuery } from "react-query";
 import axios from "axios";
