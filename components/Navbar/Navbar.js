@@ -19,31 +19,31 @@ function Navbar() {
 
   return (
     <div className="">
-      <nav className="flex bg-white drop-shadow-xl text-white  top-0 justify-between items-center px-4 py-5 lg:px-14 lg:pt-4 pb-3 md:space-x-0 space-x-2">
-        <div className="flex items-center text-white">
-          <Image src={logo} className="" alt="logo" height="50" width="50" />
-          <p className="pl-3 font-normal tracking-wider text-black">
-            Artist Ravi Dhar
-          </p>
+      <nav className="flex relative bg-navBg drop-shadow-xl text-white  top-0 justify-between items-center px-4 py-5 lg:px-14 lg:pt-4 pb-3 md:space-x-0 space-x-2">
+        <div className="flex items-center ">
+          <Image
+            src={logo}
+            className=" inline-block absolute"
+            alt="logo"
+            height="50"
+            width="50"
+          />
+          <p className="pl-3 font-normal tracking-wider ">Artist Ravi Dhar</p>
         </div>
 
-        <ul className="hidden  md:flex text-black ">
+        <ul className="hidden  md:flex ">
           <Link href="/" smooth={true} duration={1000}>
             <a className=" hover:bg-heroButton hover:shadow-xl hover:text-white rounded-sm px-5 py-2 cursor-pointer">
               Home
             </a>
           </Link>
-          <Link href="/" smooth={true} duration={1000}>
+          <Link href="/AboutUs" smooth={true} duration={1000}>
             <a className=" hover:bg-heroButton hover:shadow-xl hover:text-white rounded-sm px-5 py-2 cursor-pointer">
               About Us
             </a>
           </Link>
 
-          <Link
-            href="/Catalouge"
-            smooth={true}
-            duration={1000}
-          >
+          <Link href="/Catalouge" smooth={true} duration={1000}>
             <a className=" hover:bg-heroButton hover:shadow-xl hover:text-white  rounded-sm px-4 py-2 cursor-pointer">
               Catalouge
             </a>
@@ -61,13 +61,19 @@ function Navbar() {
         </ul>
 
         <div className="md:hidden">
-          <Image
+          {/* <Image
             src={hamburger}
+            className="text-white"
             alt="mobile drawer"
             onClick={openNavbar}
             height={40}
             width={35}
-          />
+          /> */}
+          <img 
+             alt="mobile drawer"
+             onClick={openNavbar}
+           src="https://img.icons8.com/external-jumpicon-glyph-ayub-irawan/32/ffffff/external-_17-user-interface-jumpicon-(glyph)-jumpicon-glyph-ayub-irawan.png"/>
+          {/* <img src="https://img.icons8.com/external-tal-revivo-green-tal-revivo/36/000000/external-mobile-application-hamburger-menu-setting-interface-basic-green-tal-revivo.png" /> */}
         </div>
       </nav>
 
@@ -76,66 +82,37 @@ function Navbar() {
         style={{ width: size }}
       >
         <div className="pt-8  w-11" onClick={closeNavbar}>
-          <img className="ml-8" src="https://img.icons8.com/ios-glyphs/30/000000/long-arrow-right.png" />
+          <img
+            className="ml-8"
+            src="https://img.icons8.com/ios-glyphs/30/000000/long-arrow-right.png"
+          />
         </div>
         <div className="mobileNav-header ml-5  px-3 font-bold py-1 text-heroTitle">
           Artist Ravi Dhar
         </div>
         <nav className=" mt-2 ">
           <ul className="grid space-x-8 space-y-10">
-            <Link
-              href="/"
-              smooth={true}
-              duration={1000}
-            >
-              <a 
-              className="ml-8 text-lg 0 "
-              >Home</a>
-              
-            </Link>
-            <Link
-              href="/"
-              smooth={true}
-              duration={1000}
-            >
-              <a
-              className=" ml-8 text-lg  "
-              >About Us</a>
+            <div className="flex ml-8">
+              <img src="https://img.icons8.com/material-outlined/28/000000/home--v2.png" />
+              <Link href="/" smooth={true} duration={1000}>
+                <a className=" text-lg 0 "> Home</a>
+              </Link>
+            </div>
+            <div className="flex ml-8">
+              <img src="https://img.icons8.com/material-outlined/24/000000/about.png" />
+              <Link href="/" smooth={true} duration={1000}>
+                <a className="text-lg  ">About Us</a>
+              </Link>
+            </div>
 
-              
+            <Link href="/Catalouge" smooth={true} duration={1000}>
+              <a className="text-lg">Catalouge</a>
             </Link>
-            <Link
-              href="/Catalouge"
-              smooth={true}
-              duration={1000}
-            >
-              <a
-              className="text-lg"
-              >Catalouge</a>
-
-              
+            <Link href="/Literature" smooth={true} duration={1000}>
+              <a className="text-lg ">Literature</a>
             </Link>
-            <Link
-              href="/Literature"
-              smooth={true}
-              duration={1000}
-            >
-              <a
-              className="text-lg "
-              >Literature</a>
-
-              
-            </Link>
-            <Link
-              href="/Exihibition"
-              smooth={true}
-              duration={1000}
-            >
-              <a
-              className="text-lg "
-              >Exihibition</a>
-
-              
+            <Link href="/Exihibition" smooth={true} duration={1000}>
+              <a className="text-lg ">Exihibition</a>
             </Link>
           </ul>
           <div className="flex pt-6 ml-7 space-x-4">

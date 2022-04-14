@@ -4,25 +4,28 @@ import axios from "axios";
 
 const formPopUp = () => {
   const [name, setName] = useState("");
+  const [title, setTitle] = useState("");
+  const [size, setSize] = useState("");
+  const [medium, setMedium] = useState("");
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [contactNo, setContactNo] = useState("");
   const [imageSelected, setImageSelected] = useState("");
   const [cloudinaryRes, setCloudinaryRes] = useState("");
 
   const uploadImage = async () => {
     const formData = new FormData();
     formData.append("file", imageSelected);
-    formData.append("upload_preset", "qst3d3td");
-
+    formData.append("upload_preset", "pwa2bnlq");
+    
     await axios
-      .post("https://api.cloudinary.com/v1_1/dvofl7mgy/image/upload", formData)
+      .post("https://api.cloudinary.com/v1_1/damaczg5v/image/upload", formData)
       .then((response) => {
         console.log(response);
         setCloudinaryRes(response.data);
         console.log("this is  cloudinaryRes state", cloudinaryRes);
       })
       .then(() => {
-        sendEmail();
+        // sendEmail();
         console.log("send mail invoked");
       })
       .catch((error) => {
@@ -37,7 +40,11 @@ const formPopUp = () => {
         "template_6mcwm3e",
         {
           name: name,
+          title: title,
+          size: size,
+          medium: medium,
           email: email,
+          contactNo: contactNo,
           message: message,
           image: cloudinaryRes.original_filename,
           cloudinaryUrl: cloudinaryRes.url,
@@ -56,14 +63,14 @@ const formPopUp = () => {
 
   return (
     <>
-      <div className="">
+      <div className="mt-4 md:mt-0">
         <button
           type="button"
           className="inline-block px-9 py-4 bg-cyan-600 rounded-xl  text-white font-medium text-xs leading-tight uppercase shadow-md hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg transition duration-150 ease-in-out"
           data-bs-toggle="modal"
           data-bs-target="#exampleModalCenteredScrollable"
         >
-          Upload Your Art
+          Upload
         </button>
       </div>
 
@@ -82,7 +89,7 @@ const formPopUp = () => {
                 className="text-xl font-medium leading-normal text-gray-800"
                 id="exampleModalCenteredScrollableLabel"
               >
-                Upload Your Art
+                Upload
               </h5>
 
               <button
@@ -111,6 +118,54 @@ const formPopUp = () => {
                     onChange={(e) => setName(e.target.value)}
                   />
                 </div>
+                <div className="relative mb-4">
+                  <label
+                    htmlFor="name"
+                    className="leading-7 text-sm text-gray-600"
+                  >
+                    Title
+                  </label>
+                  <input
+                    value={title}
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    onChange={(e) => setTitle(e.target.value)}
+                  />
+                </div>
+                <div className="relative mb-4">
+                  <label
+                    htmlFor="name"
+                    className="leading-7 text-sm text-gray-600"
+                  >
+                    Size
+                  </label>
+                  <input
+                    value={size}
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    onChange={(e) => setSize(e.target.value)}
+                  />
+                </div>
+                <div className="relative mb-4">
+                  <label
+                    htmlFor="name"
+                    className="leading-7 text-sm text-gray-600"
+                  >
+                    Medium
+                  </label>
+                  <input
+                    value={medium}
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    onChange={(e) => setMedium(e.target.value)}
+                  />
+                </div>
 
                 <div className="relative mb-4">
                   <label
@@ -128,6 +183,23 @@ const formPopUp = () => {
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
+                <div className="relative mb-4">
+                  <label
+                    htmlFor="name"
+                    className="leading-7 text-sm text-gray-600"
+                  >
+                    Contact No.
+                  </label>
+                  <input
+                    value={contactNo}
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    onChange={(e) => setContactNo(e.target.value)}
+                  />
+                </div>
+
 
                 <div className="relative mb-4">
                   <label
@@ -149,21 +221,7 @@ const formPopUp = () => {
                 </div>
               </form>
 
-              <div className="relative mb-4">
-                <label
-                  htmlFor="message"
-                  className="leading-7 text-sm text-gray-600"
-                >
-                  About Your Art
-                </label>
-                <textarea
-                  value={message}
-                  id="message"
-                  name="message"
-                  className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-12 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
-                  onChange={(e) => setMessage(e.target.value)}
-                ></textarea>
-              </div>
+          
             </div>
             <div className="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
               <button

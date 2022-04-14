@@ -1,10 +1,13 @@
 import React from "react";
-import aboutMe from "../../public/aboutme.jpg"
+import aboutMe from "../public/aboutme.jpg"
 import Image from "next/image";
+import Navbar from "../components/Navbar/Navbar";
+import Fotter from "../components/Fotter/Fotter";
 
 const AboutUs = () => {
   return (
     <div>
+      <Navbar/>
       <section className="bg-slate-50 ">
         <div className="container px-6 py-8 mx-auto">
           <div className="items-center lg:flex justify-evenly">
@@ -68,6 +71,7 @@ const AboutUs = () => {
           </div>
         </div>
       </section>
+      <Fotter/>
     </div>
   );
 };

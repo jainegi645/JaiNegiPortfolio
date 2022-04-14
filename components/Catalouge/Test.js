@@ -10,15 +10,15 @@ const test = (props) => {
       disableWheelControls: true,
     },
     caption: {
-      captionAlignment: 'start',
-    captionColor: '#FFFFFF',
-    captionContainerPadding: '0',
-    captionFontFamily: 'inherit',
-    captionFontSize: '1.2rem',
-    captionFontStyle: 'inherit',
-    captionFontWeight: 'bold',
-    captionTextTransform: 'inherit',
-    showCaption: true
+      captionAlignment: "start",
+      captionColor: "#FFFFFF",
+      captionContainerPadding: "0",
+      captionFontFamily: "inherit",
+      captionFontSize: "1.2rem",
+      captionFontStyle: "inherit",
+      captionFontWeight: "bold",
+      captionTextTransform: "inherit",
+      showCaption: true,
     },
     buttons: {
       showAutoplayButton: false,
@@ -35,19 +35,28 @@ const test = (props) => {
   };
   return (
     <>
-      <div className="w-auto pt-12 relative hover:opacity-80 ">
-        {/* <div className="opacity-1 text-center hover:opacity-100 duration-300 absolute inset-0 z-10 flex justify-center items-center text-3xl px-6 text-black font-semibold">
-          {props.Title}
-        </div> */}
+      <div className="w-auto pt-12 relative  ">
         <SRLWrapper options={options}>
-          <Image
-            className="bg-cover"
-            src={props.src}
-            height={props.height}
-            width={props.width}
-            srl_gallery_image="true"
-            alt={props.title}
-          />
+          <div className=" bg-white px-3 py-5">
+            <Image
+              className="bg-cover"
+              src={props.src}
+              height={props.height}
+              width={props.width}
+              srl_gallery_image="true"
+              alt={props.title}
+            />
+            <div>
+              {props.artist && (
+                <p className="text-base font-medium text-black">
+                  Artist {props.artist}
+                </p>
+              )}
+              <p className="font-normal text-slate-700">{props.size}</p>
+              <p className="text-base font-medium text-black">{props.title}</p>
+              <p className="font-normal text-slate-900"> {props.medium}</p>
+            </div>
+          </div>
         </SRLWrapper>
       </div>
     </>

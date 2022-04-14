@@ -8,9 +8,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        navBg: "#2B8A8E",
+        navBg: "#066163",
         heroButton: "#219ebc",
-        heroDescription:"#023e8a",
         heroTitle:"#00afb9",
       },
       fontFamily:{

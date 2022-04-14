@@ -2,7 +2,6 @@ import React from "react";
 import Home from "./Home";
 import Navbar from "../components/Navbar/Navbar";
 import SimpleReactLightbox from "simple-react-lightbox";
-import AboutUs from "../components/Home/AboutUs";
 import CatalougeHome from "../components/Home/CatalougeHome";
 import LiteratureHome from "../components/Home/LiteratureHome";
 import ExhibitionHome from "../components/Home/ExhibitionHome";
@@ -15,9 +14,9 @@ export default function Index() {
       <div>
         <Navbar />
         <Home />
-        <AboutUs/>
+        {/* <AboutUs/>
       <CatalougeHome/>
-      <LiteratureHome/>
+      <LiteratureHome/> */}
       {/* <ExhibitionHome/> */}
       {/* <FullLiteraturePage/> */}
       <Fotter/>

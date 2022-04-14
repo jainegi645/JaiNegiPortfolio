@@ -7,23 +7,9 @@ import { useQuery } from "react-query";
 
 export default function Carousel() {
   const [carousel, setCarousel] = useState([]);
-  // console.log(carousel);
 
-  // useEffect(() => {
-  //   const fetchCarousel = async () => {
-  //     let url = `https://dashboard-artist-ravi-dhar.herokuapp.com/api/home-carousels?populate=*`;
-  //     await axios
-  //       .get(url)
-  //       .then((response) => {
-  //         setCarousel(response.data.data);
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       });
-  //   };
-  //   fetchCarousel();
-  // }, []);
 
+ 
   const fetchCarousel = async () => {
     let url = `https://dashboard-artist-ravi-dhar.herokuapp.com/api/home-carousels?populate=*`;
 
@@ -46,21 +32,22 @@ export default function Carousel() {
   var settings = {
     dots: false,
     infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
+    speed: 1000,
+    slidesToShow: 3,
+    slidesToScroll: 3,
     autoplay: true,
-    autoplaySpeed: 1900,
+    autoplaySpeed: 3500,
     infinite: true,
     cssEase: "linear",
-    fade: true,
     pauseOnHover: false,
     arrows: false,
+    swipeToSlide: true,
+  
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 3,
           slidesToScroll: 1,
           infinite: true,
           dots: false,
