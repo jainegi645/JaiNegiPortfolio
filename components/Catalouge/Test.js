@@ -48,7 +48,7 @@ const test = (props) => {
             />
             <div>
               {props.artist && (
-                <p className="text-base font-medium text-black">
+                <p className="text-base  font-medium text-black">
                   Artist {props.artist}
                 </p>
               )}

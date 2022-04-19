@@ -89,7 +89,7 @@ const formPopUp = () => {
                 className="text-xl font-medium leading-normal text-gray-800"
                 id="exampleModalCenteredScrollableLabel"
               >
-                Upload
+                About the exhibit
               </h5>
 
               <button

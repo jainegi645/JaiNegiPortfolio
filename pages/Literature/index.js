@@ -1,32 +1,34 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import LiteratureCard from "../components/Literature/LiteratureCard";
-import Navbar from "../components/Navbar/Navbar";
-import Fotter from "../components/Fotter/Fotter";
+import LiteratureCard from "../../components/Literature/LiteratureCard";
+import Navbar from "../../components/Navbar/Navbar";
+import Fotter from "../../components/Fotter/Fotter";
 
-const Blogs = () => {
-  const [cards, setCards] = useState([]);
-  const [option, setOption] = useState(`populate=*`);
+
+
+const Literature = ({literatures,literaturesHindi}) => {
+  const [option, setOption] = useState('All');
  
 
-  useEffect(() => {
-    const fetchLiterature = async () => {
-      let url = `https://dashboard-artist-ravi-dhar.herokuapp.com/api/literatures?${option}`;
-      await axios
-        .get(url)
-        .then((response) => {
-          setCards(response.data.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
-    fetchLiterature();
-  }, [option]);
+  // useEffect(() => {
+  //   const fetchLiterature = async () => {
+  //     let url = `https://dashboard-artist-ravi-dhar.herokuapp.com/api/literatures?${option}`;
+  //     await axios
+  //       .get(url)
+  //       .then((response) => {
+  //         setCards(response.data.data);
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
+  //   };
+  //   fetchLiterature();
+  // }, [option]);
 
   return (
     <>
       <Navbar />
+      {console.log('hindi',literaturesHindi)}
 
       <div className="md:flex md:justify-between px-5 md:py-16 py-8 items-center">
         <div>
@@ -41,13 +43,13 @@ const Blogs = () => {
         </div>
 
 
-        <div class="pt-4 md:pt-0 md:flex md:justify-center">
+        <div className="pt-4 md:pt-0 md:flex md:justify-center">
 
 
           <div>
-            <div class="dropdown relative">
+            <div className="dropdown relative">
               <button
-                class="
+                className="
                   px-9 py-4 bg-cyan-600
           dropdown-toggle
           rounded-xl
@@ -70,16 +72,14 @@ const Blogs = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                {option === `populate=*`? "All": null ||
-                 option === `filters[Filter][$eq]=Hindi&populate=*`? "Hindi": null ||
-                 option === `filters[Filter][$eq]=English&populate=*`? "English": null}
+                {option }
 
                 <svg
                   aria-hidden="true"
                   focusable="false"
                   data-prefix="fas"
                   data-icon="caret-down"
-                  class="w-2 ml-2"
+                  className="w-2 ml-2"
                   role="img"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 320 512"
@@ -91,7 +91,7 @@ const Blogs = () => {
                 </svg>
               </button>
               <ul
-                class="
+                className="
           dropdown-menu
           min-w-max
           absolute
@@ -115,7 +115,7 @@ const Blogs = () => {
 
 <li>
                   <a
-                    class="
+                    className="
               dropdown-item
               text-sm
               py-2
@@ -130,7 +130,7 @@ const Blogs = () => {
             "
                     href="#"
                     onClick={() =>
-                      setOption(`populate=*`)
+                      setOption('All')
                     }
                   >
                     All
@@ -139,7 +139,7 @@ const Blogs = () => {
 
                 <li>
                   <a
-                    class="
+                    className="
               dropdown-item
               text-sm
               py-2
@@ -154,7 +154,7 @@ const Blogs = () => {
             "
                     href="#"
                     onClick={() =>
-                      setOption( `filters[Filter][$eq]=English&populate=*`)
+                      setOption( `English`)
                     }
                   >
                     
@@ -163,7 +163,7 @@ const Blogs = () => {
                 </li>
                 <li>
                   <a
-                    class="
+                    className="
               dropdown-item
               text-sm
               py-2
@@ -178,7 +178,7 @@ const Blogs = () => {
             "
                     href="#"
                     onClick={() =>
-                      setOption( `filters[Filter][$eq]=Hindi&populate=*`)
+                      setOption( 'Hindi')
                     }
                   >
                     Hindi
@@ -194,17 +194,92 @@ const Blogs = () => {
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap -m-4">
-            {cards.map((item) => {
+
+            {option === 'All'? literatures.map((item) => {
               return (
                 <LiteratureCard
                   key={item.id}
+                  id = {item.id}
                   Filter={item.attributes.Filter}
                   Title={item.attributes.Title}
                   Content={item.attributes.Content}
                   CoverImg={item.attributes.CoverImage.data.attributes.url}
                 />
+            
               );
-            })}
+            }) :  literatures.filter((elem) => elem.attributes.Filter === option).map((item) => {
+              return (
+                <LiteratureCard
+                  key={item.id}
+                  id = {item.id}
+                  Filter={item.attributes.Filter}
+                  Title={item.attributes.Title}
+                  Content={item.attributes.Content}
+                  CoverImg={item.attributes.CoverImage.data.attributes.url}
+                />
+            
+              );
+            }) }
+            {/* { literatures.filter((elem) => elem.attributes.Filter === option).map((item) => {
+              return (
+                <LiteratureCard
+                  key={item.id}
+                  id = {item.id}
+                  Filter={item.attributes.Filter}
+                  Title={item.attributes.Title}
+                  Content={item.attributes.Content}
+                  CoverImg={item.attributes.CoverImage.data.attributes.url}
+                />
+            
+              );
+            }) 
+          } */}
+
+
+            {/* {option === 'All'? literatures.map((item) => {
+              return (
+                <LiteratureCard
+                  key={item.id}
+                  id = {item.id}
+                  Filter={item.attributes.Filter}
+                  Title={item.attributes.Title}
+                  Content={item.attributes.Content}
+                  CoverImg={item.attributes.CoverImage.data.attributes.url}
+                />
+            
+              );
+            })
+            : null ||
+            option === 'English'? literatures.map((item) => {
+              return (
+                <LiteratureCard
+                  key={item.id}
+                  id = {item.id}
+                  Filter={item.attributes.Filter}
+                  Title={item.attributes.Title}
+                  Content={item.attributes.Content}
+                  CoverImg={item.attributes.CoverImage.data.attributes.url}
+                />
+            
+              );
+            })
+            : null ||
+            option === 'Hindi'? literaturesHindi.map((item) => {
+              return (
+                <LiteratureCard
+                  key={item.id}
+                  id = {item.id}
+                  Filter={item.attributes.Filter}
+                  Title={item.attributes.Title}
+                  Content={item.attributes.Content}
+                  CoverImg={item.attributes.CoverImage.data.attributes.url}
+                />
+            
+              );
+            })
+            : null 
+
+          } */}
           </div>
         </div>
       </section>
@@ -213,4 +288,19 @@ const Blogs = () => {
   );
 };
 
-export default Blogs;
+
+
+
+export async function getServerSideProps(context){
+    const res = await axios(`https://dashboard-artist-ravi-dhar.herokuapp.com/api/literatures?populate=*`)
+    const data = await res.data.data;
+   
+    return{
+        props:{
+            literatures:data,
+            
+        }
+    }
+}
+
+export default Literature;
