@@ -9,7 +9,10 @@ export default function handler(req, res) {
     console.log('webhokhandler worked model is:',model)
   } else {
     // Handle any other HTTP method
-    res.status(400).send(`Unsupported method `)
+    const data = {
+      model: model,
+    }
+    res.status(200).json({ model });
   }
   
   }
