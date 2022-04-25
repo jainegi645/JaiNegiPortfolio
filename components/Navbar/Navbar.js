@@ -5,9 +5,11 @@ import { motion } from "framer-motion";
 import logo from "../../public/logowithoutbg.png";
 import hamburger from "../../public/hamburger.png";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 function Navbar() {
   // let history = useHistory();
+  const router = useRouter();
   const [size, setSize] = useState(`0px`);
 
   const openNavbar = () => {
@@ -51,13 +53,13 @@ function Navbar() {
 
           <div class="flex justify-center border-none items-center">
             <div>
-              <div class="dropdown relative flex items-center">
+              <div class="dropdown relative flex items-center hover:bg-heroButton px-4 py-2 cursor-pointer group">
                 <Link href="/Catalouge" smooth={true} duration={1000}>
                   <a>Catalouge</a>
                 </Link>
 
-                {/* <button
-                  class="dropdown-toggle  rounded-sm hover:bg-heroButton hover:shadow-xl leading-tight transition duration-150 ease-in-out flex items-center whitespace-nowrap"
+                <button
+                  class="dropdown-toggle group-hover:block  rounded-sm hover:bg-heroButton hover:shadow-xl leading-tight transition duration-150 ease-in-out flex items-center whitespace-nowrap"
                   type="button"
                   id="dropdownMenuButton1"
                   data-bs-toggle="dropdown"
@@ -79,8 +81,9 @@ function Navbar() {
                     ></path>
                   </svg>
                 </button>
+
                 <ul
-                  class="dropdown-menu min-w-max absolute bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden md:hover:block m-0 bg-clip-padding border-none"
+                  class="dropdown-menu -left-0  group-hover:block px-4 py-2 min-w-max absolute bg-white text-base  list-none rounded-lg shadow-lg mt-32 hidden md:hover:block bg-clip-padding border-none"
                   aria-labelledby="dropdownMenuButton1"
                 >
                   <li>
@@ -99,7 +102,15 @@ function Navbar() {
               text-gray-700
               hover:bg-gray-100
             "
-                      href="#"
+                      onClick={() => {
+                        router.push(
+                          {
+                            pathname: "/Catalouge",
+                            query: { filter: "Paintings" },
+                          },
+                          "/Catalouge/Paintings"
+                        );
+                      }}
                     >
                       Paintings
                     </a>
@@ -119,21 +130,122 @@ function Navbar() {
               text-gray-700
               hover:bg-gray-100
             "
-                      href="#"
+                      onClick={() => {
+                        router.push({
+                          pathname: "/Catalouge",
+                          query: { filter: "Portraits" },
+                        }, "/Catalouge/Portraits");
+                      }}
                     >
                       Portraits
                     </a>
                   </li>
-                </ul> */}
+                </ul>
               </div>
             </div>
           </div>
 
-          <Link href="/Literature" smooth={true} duration={1000}>
+          {/* <Link href="/Literature" smooth={true} duration={1000}>
             <a className=" hover:bg-heroButton hover:shadow-xl hover:text-white  rounded-sm px-4 py-2 cursor-pointer">
               Literature
             </a>
-          </Link>
+          </Link> */}
+
+          
+<div class="flex justify-center border-none items-center">
+            <div>
+              <div class="dropdown relative flex items-center hover:bg-heroButton px-4 py-2 cursor-pointer group">
+                <Link href="/Literature" smooth={true} duration={1000}>
+                  <a>Literature</a>
+                </Link>
+
+                <button
+                  class="dropdown-toggle group-hover:block  rounded-sm hover:bg-heroButton hover:shadow-xl leading-tight transition duration-150 ease-in-out flex items-center whitespace-nowrap"
+                  type="button"
+                  id="dropdownMenuButton1"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    data-prefix="fas"
+                    data-icon="caret-down"
+                    class="w-2 ml-2"
+                    role="img"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 320 512"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                    ></path>
+                  </svg>
+                </button>
+
+                <ul
+                  class="dropdown-menu -left-0  group-hover:block px-4 py-2 min-w-max absolute bg-white text-base  list-none rounded-lg shadow-lg mt-32 hidden md:hover:block bg-clip-padding border-none"
+                  aria-labelledby="dropdownMenuButton1"
+                >
+                  <li>
+                    <a
+                      class="
+              dropdown-item
+              text-sm
+              py-2
+              px-4
+              font-normal
+              block
+              w-full
+              z-50
+              whitespace-nowrap
+              bg-transparent
+              text-gray-700
+              hover:bg-gray-100
+            "
+                      onClick={() => {
+                        router.push(
+                          {
+                            pathname: "/Literature",
+                            query: { filter: "Hindi" },
+                          },
+                          "/Literature/Hindi"
+                        );
+                      }}
+                    >
+                      Hindi
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="
+              dropdown-item
+              text-sm
+              py-2
+              px-4
+              font-normal
+              block
+              w-full
+              whitespace-nowrap
+              bg-transparent
+              text-gray-700
+              hover:bg-gray-100
+            "
+                      onClick={() => {
+                        router.push({
+                          pathname: "/Literature",
+                          query: { filter: "English" },
+                        }, "/Literature/English");
+                      }}
+                    >
+                      English
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
           <Link href="/Exihibition" smooth={true} duration={1000}>
             <a className=" hover:bg-heroButton hover:shadow-xl hover:text-white rounded-sm px-4 py-2 cursor-pointer">
               Exihibition

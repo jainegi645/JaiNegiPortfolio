@@ -3,32 +3,24 @@ import axios from "axios";
 import LiteratureCard from "../../components/Literature/LiteratureCard";
 import Navbar from "../../components/Navbar/Navbar";
 import Fotter from "../../components/Fotter/Fotter";
+import { useRouter } from "next/router";
 
+const Literature = ({ literatures, literaturesHindi }) => {
+  const router = useRouter();
 
+  const [option, setOption] = useState("All");
 
-const Literature = ({literatures,literaturesHindi}) => {
-  const [option, setOption] = useState('All');
- 
-
-  // useEffect(() => {
-  //   const fetchLiterature = async () => {
-  //     let url = `https://dashboard-artist-ravi-dhar.herokuapp.com/api/literatures?${option}`;
-  //     await axios
-  //       .get(url)
-  //       .then((response) => {
-  //         setCards(response.data.data);
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       });
-  //   };
-  //   fetchLiterature();
-  // }, [option]);
+  useEffect(() => {
+    if (router.query.filter === "Hindi") {
+      setOption("Hindi");
+    } else if (router.query.filter === "English") {
+      setOption("English");
+    }
+  }, [router.query.filter]);
 
   return (
     <>
       <Navbar />
-      {console.log('hindi',literaturesHindi)}
 
       <div className="md:flex md:justify-between px-5 md:py-16 py-8 items-center">
         <div>
@@ -42,10 +34,7 @@ const Literature = ({literatures,literaturesHindi}) => {
           </p>
         </div>
 
-
         <div className="pt-4 md:pt-0 md:flex md:justify-center">
-
-
           <div>
             <div className="dropdown relative">
               <button
@@ -72,7 +61,7 @@ const Literature = ({literatures,literaturesHindi}) => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                {option }
+                {option}
 
                 <svg
                   aria-hidden="true"
@@ -112,8 +101,7 @@ const Literature = ({literatures,literaturesHindi}) => {
         "
                 aria-labelledby="dropdownMenuButton1"
               >
-
-<li>
+                <li>
                   <a
                     className="
               dropdown-item
@@ -128,10 +116,18 @@ const Literature = ({literatures,literaturesHindi}) => {
               text-gray-700
               hover:bg-gray-100
             "
-                    href="#"
-                    onClick={() =>
-                      setOption('All')
-                    }
+                    // onClick={() => setOption("All")}
+                    onClick={() => {
+                      setOption(`All`);
+                      router.push({
+                        pathname: '/Literature',
+                      }, 
+                      '/Literature', { shallow: true }
+                      )
+
+                    
+                    
+                    }}
                   >
                     All
                   </a>
@@ -152,12 +148,18 @@ const Literature = ({literatures,literaturesHindi}) => {
               text-gray-700
               hover:bg-gray-100
             "
-                    href="#"
-                    onClick={() =>
-                      setOption( `English`)
-                    }
+                 
+                    onClick={() => {
+                      setOption(`English`);
+                      router.push(
+                        {
+                          pathname: "/Literature",
+                        },
+                        "/Literature/English",
+                        { shallow: true }
+                      );
+                    }}
                   >
-                    
                     English
                   </a>
                 </li>
@@ -176,110 +178,58 @@ const Literature = ({literatures,literaturesHindi}) => {
               text-gray-700
               hover:bg-gray-100
             "
-                    href="#"
-                    onClick={() =>
-                      setOption( 'Hindi')
-                    }
+                    // onClick={() => setOption("Hindi")}
+                    onClick={() => {
+                      setOption(`Hindi`);
+                      router.push(
+                        {
+                          pathname: "/Literature",
+                        },
+                        "/Literature/Hindi",
+                        { shallow: true }
+                      );
+                    }}
                   >
                     Hindi
                   </a>
                 </li>
               </ul>
             </div>
-            </div>
-            </div>
-        
-        
+          </div>
+        </div>
       </div>
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap -m-4">
-
-            {option === 'All'? literatures.map((item) => {
-              return (
-                <LiteratureCard
-                  key={item.id}
-                  id = {item.id}
-                  Filter={item.attributes.Filter}
-                  Title={item.attributes.Title}
-                  Content={item.attributes.Content}
-                  CoverImg={item.attributes.CoverImage.data.attributes.url}
-                />
-            
-              );
-            }) :  literatures.filter((elem) => elem.attributes.Filter === option).map((item) => {
-              return (
-                <LiteratureCard
-                  key={item.id}
-                  id = {item.id}
-                  Filter={item.attributes.Filter}
-                  Title={item.attributes.Title}
-                  Content={item.attributes.Content}
-                  CoverImg={item.attributes.CoverImage.data.attributes.url}
-                />
-            
-              );
-            }) }
-            {/* { literatures.filter((elem) => elem.attributes.Filter === option).map((item) => {
-              return (
-                <LiteratureCard
-                  key={item.id}
-                  id = {item.id}
-                  Filter={item.attributes.Filter}
-                  Title={item.attributes.Title}
-                  Content={item.attributes.Content}
-                  CoverImg={item.attributes.CoverImage.data.attributes.url}
-                />
-            
-              );
-            }) 
-          } */}
-
-
-            {/* {option === 'All'? literatures.map((item) => {
-              return (
-                <LiteratureCard
-                  key={item.id}
-                  id = {item.id}
-                  Filter={item.attributes.Filter}
-                  Title={item.attributes.Title}
-                  Content={item.attributes.Content}
-                  CoverImg={item.attributes.CoverImage.data.attributes.url}
-                />
-            
-              );
-            })
-            : null ||
-            option === 'English'? literatures.map((item) => {
-              return (
-                <LiteratureCard
-                  key={item.id}
-                  id = {item.id}
-                  Filter={item.attributes.Filter}
-                  Title={item.attributes.Title}
-                  Content={item.attributes.Content}
-                  CoverImg={item.attributes.CoverImage.data.attributes.url}
-                />
-            
-              );
-            })
-            : null ||
-            option === 'Hindi'? literaturesHindi.map((item) => {
-              return (
-                <LiteratureCard
-                  key={item.id}
-                  id = {item.id}
-                  Filter={item.attributes.Filter}
-                  Title={item.attributes.Title}
-                  Content={item.attributes.Content}
-                  CoverImg={item.attributes.CoverImage.data.attributes.url}
-                />
-            
-              );
-            })
-            : null 
-
-          } */}
+            {option === "All"
+              ? literatures.map((item) => {
+                  return (
+                    <LiteratureCard
+                      key={item.id}
+                      id={item.id}
+                      Filter={item.attributes.Filter}
+                      Title={item.attributes.Title}
+                      Content={item.attributes.Content}
+                      CoverImg={item.attributes.CoverImage.data.attributes.url}
+                    />
+                  );
+                })
+              : literatures
+                  .filter((elem) => elem.attributes.Filter === option)
+                  .map((item) => {
+                    return (
+                      <LiteratureCard
+                        key={item.id}
+                        id={item.id}
+                        Filter={item.attributes.Filter}
+                        Title={item.attributes.Title}
+                        Content={item.attributes.Content}
+                        CoverImg={
+                          item.attributes.CoverImage.data.attributes.url
+                        }
+                      />
+                    );
+                  })}
           </div>
         </div>
       </section>
@@ -288,19 +238,17 @@ const Literature = ({literatures,literaturesHindi}) => {
   );
 };
 
+export async function getServerSideProps(context) {
+  const res = await axios(
+    `https://dashboard-artist-ravi-dhar.herokuapp.com/api/literatures?populate=*`
+  );
+  const data = await res.data.data;
 
-
-
-export async function getServerSideProps(context){
-    const res = await axios(`https://dashboard-artist-ravi-dhar.herokuapp.com/api/literatures?populate=*`)
-    const data = await res.data.data;
-   
-    return{
-        props:{
-            literatures:data,
-            
-        }
-    }
+  return {
+    props: {
+      literatures: data,
+    },
+  };
 }
 
 export default Literature;

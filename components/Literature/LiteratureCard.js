@@ -1,8 +1,12 @@
 import React from "react";
 import ReactMarkdown from 'react-markdown';
 import Link from "next/link"
+import { useRouter } from "next/router";
+
 
 const LiteratureCard = (props) => {
+  const router = useRouter();
+
   return (
     <div  className="p-4 lg:w-1/3">
  

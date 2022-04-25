@@ -4,17 +4,20 @@ import axios from "axios";
 import Test from "../components/Catalouge/Test";
 import Navbar from "../components/Navbar/Navbar";
 import Fotter from "../components/Fotter/Fotter";
+import { useRouter } from "next/router";
 
 const Catalouge = () => {
+  const router = useRouter();
   const [catalouge, setCatalouge] = useState([]);
   const [option, setOption] = useState(`populate=*`);
-  const [all, setAll] = useState(`populate=*`);
-  const [paintings, setPaintings] = useState(
-    `filters[filter][$eq]=paintings&populate=*`
-  );
-  const [portraits, setPortraits] = useState(
-    `filters[filter][$eq]=portraits&populate=*`
-  );
+ 
+  useEffect(() => {
+    if (router.query.filter === "Paintings") {
+      setOption(`filters[filter][$eq]=paintings&populate=*`);
+    } else if (router.query.filter === "Portraits") {
+      setOption(`filters[filter][$eq]=portraits&populate=*`);
+    }
+  }, [router.query.filter]);
 
   useEffect(() => {
     const fetchCatalouge = async () => {
@@ -31,6 +34,8 @@ const Catalouge = () => {
     fetchCatalouge();
   }, [option]);
 
+
+
   //responsive breakpoits for masonry layout
   const breakpointColumnsObj = {
     default: 4,
@@ -43,7 +48,6 @@ const Catalouge = () => {
     <div>
       <Navbar />
       <div className=" md:flex md:justify-between px-5 md:py-16 py-8 items-center">
-        
         <div className="">
           <h2 className="lg:text-7xl text-5xl  lg:font-normal text-slate-700 ">
             Catalouge
@@ -81,9 +85,15 @@ const Catalouge = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                {option === `populate=*`? "All": null ||
-                 option === `filters[filter][$eq]=paintings&populate=*`? "Paintings": null ||
-                 option === `filters[filter][$eq]=portraits&populate=*`? "Portraits": null}
+                {option === `populate=*`
+                  ? "All"
+                  : null ||
+                    option === `filters[filter][$eq]=paintings&populate=*`
+                  ? "Paintings"
+                  : null ||
+                    option === `filters[filter][$eq]=portraits&populate=*`
+                  ? "Portraits"
+                  : null}
 
                 <svg
                   aria-hidden="true"
@@ -123,8 +133,7 @@ const Catalouge = () => {
         "
                 aria-labelledby="dropdownMenuButton1"
               >
-
-<li>
+                <li>
                   <a
                     class="
               dropdown-item
@@ -139,10 +148,17 @@ const Catalouge = () => {
               text-gray-700
               hover:bg-gray-100
             "
-                    href="#"
-                    onClick={() =>
-                      setOption(`populate=*`)
-                    }
+                    onClick={() => {
+                      setOption(`populate=*`);
+                      router.push({
+                        pathname: '/Catalouge',
+                      }, 
+                      '/Catalouge', { shallow: true }
+                      )
+
+                    
+                    
+                    }}
                   >
                     All
                   </a>
@@ -163,9 +179,14 @@ const Catalouge = () => {
               text-gray-700
               hover:bg-gray-100
             "
-                    href="#"
-                    onClick={() =>
-                      setOption(`filters[filter][$eq]=paintings&populate=*`)
+                    onClick={() => {
+                      setOption(`filters[filter][$eq]=paintings&populate=*`);
+                      router.push({
+                        pathname: '/Catalouge',
+                      }, 
+                      '/Catalouge/Paintings', { shallow: true }
+                      )
+                    }
                     }
                   >
                     Paintings
@@ -186,9 +207,15 @@ const Catalouge = () => {
               text-gray-700
               hover:bg-gray-100
             "
-                    href="#"
-                    onClick={() =>
+                    onClick={() =>{
                       setOption(`filters[filter][$eq]=portraits&populate=*`)
+                      router.push({
+                        pathname: '/Catalouge',
+                      }, 
+                      '/Catalouge/Portraits', { shallow: true }
+                      )
+                      
+                    }
                     }
                   >
                     Portraits
@@ -199,7 +226,7 @@ const Catalouge = () => {
           </div>
         </div>
       </div>
-      
+
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"
@@ -213,7 +240,7 @@ const Catalouge = () => {
               width={item.attributes.image.data.attributes.width}
               height={item.attributes.image.data.attributes.height}
               title={item.attributes.title}
-              size ={item.attributes.size}
+              size={item.attributes.size}
               medium={item.attributes.medium}
             />
           );
