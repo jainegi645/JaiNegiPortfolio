@@ -45,12 +45,6 @@ function Navbar() {
             </a>
           </Link>
 
-          {/* <Link href="/Catalouge" smooth={true} duration={1000}>
-            <a className=" hover:bg-heroButton hover:shadow-xl hover:text-white  rounded-sm px-4 py-2 cursor-pointer">
-              Catalouge
-            </a>
-          </Link> */}
-
           <div class="flex justify-center border-none items-center">
             <div>
               <div class="dropdown relative flex items-center hover:bg-heroButton px-4 py-2 cursor-pointer group">
@@ -131,10 +125,13 @@ function Navbar() {
               hover:bg-gray-100
             "
                       onClick={() => {
-                        router.push({
-                          pathname: "/Catalouge",
-                          query: { filter: "Portraits" },
-                        }, "/Catalouge/Portraits");
+                        router.push(
+                          {
+                            pathname: "/Catalouge",
+                            query: { filter: "Portraits" },
+                          },
+                          "/Catalouge/Portraits"
+                        );
                       }}
                     >
                       Portraits
@@ -145,14 +142,7 @@ function Navbar() {
             </div>
           </div>
 
-          {/* <Link href="/Literature" smooth={true} duration={1000}>
-            <a className=" hover:bg-heroButton hover:shadow-xl hover:text-white  rounded-sm px-4 py-2 cursor-pointer">
-              Literature
-            </a>
-          </Link> */}
-
-          
-<div class="flex justify-center border-none items-center">
+          <div class="flex justify-center border-none items-center">
             <div>
               <div class="dropdown relative flex items-center hover:bg-heroButton px-4 py-2 cursor-pointer group">
                 <Link href="/Literature" smooth={true} duration={1000}>
@@ -232,10 +222,13 @@ function Navbar() {
               hover:bg-gray-100
             "
                       onClick={() => {
-                        router.push({
-                          pathname: "/Literature",
-                          query: { filter: "English" },
-                        }, "/Literature/English");
+                        router.push(
+                          {
+                            pathname: "/Literature",
+                            query: { filter: "English" },
+                          },
+                          "/Literature/English"
+                        );
                       }}
                     >
                       English
@@ -254,20 +247,26 @@ function Navbar() {
         </ul>
 
         <div className="md:hidden">
-          {/* <Image
-            src={hamburger}
-            className="text-white"
-            alt="mobile drawer"
+        
+        {/* hamburger menu icon below */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-8 w-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
             onClick={openNavbar}
-            height={40}
-            width={35}
-          /> */}
-          <img
             alt="mobile drawer"
-            onClick={openNavbar}
-            src="https://img.icons8.com/external-jumpicon-glyph-ayub-irawan/32/ffffff/external-_17-user-interface-jumpicon-(glyph)-jumpicon-glyph-ayub-irawan.png"
-          />
-          {/* <img src="https://img.icons8.com/external-tal-revivo-green-tal-revivo/36/000000/external-mobile-application-hamburger-menu-setting-interface-basic-green-tal-revivo.png" /> */}
+
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4 6h16M4 12h16M4 18h7"
+            />
+          </svg>
+         
         </div>
       </nav>
 
@@ -275,41 +274,180 @@ function Navbar() {
         className="fixed z-10 bg-white top-0 right-0 h-screen  ease-in-out"
         style={{ width: size }}
       >
-        <div className="pt-8  w-11" onClick={closeNavbar}>
+        <div className="pt-4  w-11" onClick={closeNavbar}>
           <img
             className="ml-8"
             src="https://img.icons8.com/ios-glyphs/30/000000/long-arrow-right.png"
           />
         </div>
-        <div className="mobileNav-header ml-5  px-3 font-bold py-1 text-heroTitle">
+        <div className="mobileNav-header border-b-2 font-medium  ml-5 px-3 text-xl py-1 text-heroTitle">
           Artist Ravi Dhar
         </div>
         <nav className=" mt-2 ">
-          <ul className="grid space-x-8 space-y-10">
-            <div className="flex ml-8">
+          <ul className="grid space-x-8 ">
+            <div className="flex ml-8 pt-5">
               <img src="https://img.icons8.com/material-outlined/28/000000/home--v2.png" />
+              {/* <img src="https://img.icons8.com/ios/22/000000/home--v1.png"/> */}
               <Link href="/" smooth={true} duration={1000}>
-                <a className=" text-lg 0 "> Home</a>
+                <a className=" text-lg pl-2 "> Home</a>
               </Link>
             </div>
-            <div className="flex ml-8">
+            <div className="flex ml-8 pt-12">
               <img src="https://img.icons8.com/material-outlined/24/000000/about.png" />
               <Link href="/AboutUs" smooth={true} duration={1000}>
-                <a className="text-lg  ">About Us</a>
+                <a className="text-lg  pl-2">About Us</a>
               </Link>
             </div>
 
-            <Link href="/Catalouge" smooth={true} duration={1000}>
-              <a className="text-lg">Catalouge</a>
-            </Link>
-            <Link href="/Literature" smooth={true} duration={1000}>
-              <a className="text-lg ">Literature</a>
-            </Link>
-            <Link href="/Exihibition" smooth={true} duration={1000}>
-              <a className="text-lg ">Exihibition</a>
-            </Link>
+            {/* accordian starts here */}
+            <div
+              class="accordion accordion-flush"
+              id="accordionFlushExample border-b-0 "
+            >
+              <div class="accordion-item border-t-0 border-l-0 border-r-0 border-none rounded-none bg-white border ">
+                <h2 class="accordion-header mb-0" id="flush-headingOne">
+                  <button
+                    class=" pt-12 accordion-button text-lg relative flex items-center w-full  text-left bg-white rounded-none transition focus:outline-none"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseOne"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseOne"
+                    onClick={() => {
+                      router.push("/Catalouge");
+                    }}
+                  >
+                    <img src="https://img.icons8.com/pastel-glyph/23/000000/catalog--v2.png" />
+                    <Link href="/Catalouge" smooth={true} duration={1000}>
+                      <a className="pl-2 text-lg">Catalouge</a>
+                    </Link>
+                  </button>
+                </h2>
+
+                <div
+                  id="flush-collapseOne"
+                  class="accordion-collapse border-0 collapse show"
+                  aria-labelledby="flush-headingOne"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body py-4 px-5">
+                    <ul>
+                      <li>
+                        <a
+                          onClick={() => {
+                            router.push(
+                              {
+                                pathname: "/Catalouge",
+                                query: { filter: "Paintings" },
+                              },
+                              "/Catalouge/Paintings"
+                            );
+                          }}
+                        >
+                          Paintings
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="accordion-body py-4 px-5">
+                    <ul>
+                      <li>
+                        <a
+                          onClick={() => {
+                            router.push(
+                              {
+                                pathname: "/Catalouge",
+                                query: { filter: "Portraits" },
+                              },
+                              "/Catalouge/Portraits"
+                            );
+                          }}
+                        >
+                          Portraits
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item border-l-0 border-r-0 rounded-none bg-white  border-gray-200">
+                  <h2 class="accordion-header mb-0" id="flush-headingThree">
+                    <button
+                      class=" pt-12 accordion-button text-lg relative flex items-center w-full  text-left bg-white rounded-none transition focus:outline-none"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseThree"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseThree"
+                      onClick={() => {
+                        router.push("/Literature");
+                      }}
+                    >
+                      <img src="https://img.icons8.com/glyph-neue/24/000000/literature.png" />
+                      <Link href="/Literature" smooth={true} duration={1000}>
+                        <a className="pl-2 text-lg">Literature</a>
+                      </Link>
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseThree"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingThree"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body py-4 px-5">
+                      <ul>
+                        <li>
+                          <a
+                            onClick={() => {
+                              router.push(
+                                {
+                                  pathname: "/Literature",
+                                  query: { filter: "Hindi" },
+                                },
+                                "/Literature/Hindi"
+                              );
+                            }}
+                          >
+                            Hindi
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="accordion-body py-4 px-5">
+                      <ul>
+                        <li>
+                          <a
+                            onClick={() => {
+                              router.push(
+                                {
+                                  pathname: "/Literature",
+                                  query: { filter: "English" },
+                                },
+                                "/Literature/English"
+                              );
+                            }}
+                          >
+                            English
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* accordian ends here: */}
+            <div className="flex pt-12">
+              <img src="https://img.icons8.com/ios/24/000000/physical-gallery.png" />
+              <Link href="/Exihibition" smooth={true} duration={1000}>
+                <a className="text-lg pl-2">Exihibition</a>
+              </Link>
+            </div>
           </ul>
-          <div className="flex pt-6 ml-7 space-x-4">
+          <div className="flex pt-12 ml-7 space-x-7">
             <a
               // href="https://www.instagram.com/insuranceservicepilani/"
               className="w-10 h-2/4 lg:w-11 lg:h-2/4 cursor-pointer"

@@ -59,6 +59,14 @@ body {
   padding-top: 1em ;
 }
 
+
+.accordion-button::after{
+  margin-left: 1em !important;
+  border: none;
+}
+.accordion-flush{
+  border-bottom: 0 !important;
+}
 /* the parent */
 /* .slick-list {
   margin: 0 -27px;
