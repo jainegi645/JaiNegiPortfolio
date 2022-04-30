@@ -20,6 +20,8 @@ export default function Index() {
       {/* <ExhibitionHome/> */}
       {/* <FullLiteraturePage/> */}
       <Fotter/>
+     
+      
       </div>
     </SimpleReactLightbox>
   );

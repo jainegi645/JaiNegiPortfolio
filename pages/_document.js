@@ -25,6 +25,9 @@ function Document() {
           rel="stylesheet"
         />
 
+        {/* for whatsup button */}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+
         <script src="https://cdn.tailwindcss.com"></script>
       </Head>
       <body>
