@@ -42,6 +42,9 @@ const Fotter = () => {
                    Pilani - 333031(Rajasthan) INDIA
                 </p>
                 <p className="text-slate-300  mb-1">
+                   Email:rddharbhardwaj02@gmail.com
+                </p>
+                <p className="text-slate-300  mb-1">
                    Contact No: +91 9680099627, +91 9588046519
                 </p>
                 
