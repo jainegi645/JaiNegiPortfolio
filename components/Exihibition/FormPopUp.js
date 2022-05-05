@@ -11,54 +11,60 @@ const formPopUp = () => {
   const [contactNo, setContactNo] = useState("");
   const [imageSelected, setImageSelected] = useState("");
   const [cloudinaryRes, setCloudinaryRes] = useState("");
+  const [uploadFlag, setuploadFlag] = useState(false);
+  const [erroruploaFlag, setErrorUploadFlag] = useState(false);
+  const [emptyFieldError, setemptyFieldError] = useState(false);
+  // const [errorMailFlag, setErrorMailFlag] = useState(false);
 
   const uploadImage = async () => {
+    if(!name || !title || !size || !medium || !email || !contactNo || !imageSelected){
+      setemptyFieldError(true);
+    }
+    else{
     const formData = new FormData();
     formData.append("file", imageSelected);
     formData.append("upload_preset", "pwa2bnlq");
-    
+
     await axios
       .post("https://api.cloudinary.com/v1_1/damaczg5v/image/upload", formData)
       .then((response) => {
-        console.log(response);
+        if (response.status === 200) {
+          setuploadFlag(!uploadFlag);
+        }
         setCloudinaryRes(response.data);
-        console.log("this is  cloudinaryRes state", cloudinaryRes);
+        return response.data;
       })
-      .then(() => {
-        // sendEmail();
-        console.log("send mail invoked");
+      .then((cloudinaryRes) => {
+        emailjs
+          .send(
+            "service_ve8q9nu",
+            "template_ao258xp",
+            {
+              name: name,
+              title: title,
+              size: size,
+              medium: medium,
+              email: email,
+              contactNo: contactNo,
+              image: cloudinaryRes.original_filename,
+              cloudinaryUrl: cloudinaryRes.url,
+            },
+            "ITwO2ihMi-UOtyFip"
+          )
+          
       })
       .catch((error) => {
+        setErrorUploadFlag(true);
         console.log(error);
       });
+    }
   };
 
-  const sendEmail = async() => {
-    await emailjs
-      .send(
-        "service_c0s0fyo",
-        "template_6mcwm3e",
-        {
-          name: name,
-          title: title,
-          size: size,
-          medium: medium,
-          email: email,
-          contactNo: contactNo,
-          message: message,
-          image: cloudinaryRes.original_filename,
-          cloudinaryUrl: cloudinaryRes.url,
-        },
-        "LiF_zKhRw3utGDT9j"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+  const handleCancelClick = () => {
+    setuploadFlag(false);
+    setErrorUploadFlag(false);
+    setemptyFieldError(false);
+   
   };
 
   return (
@@ -183,6 +189,7 @@ const formPopUp = () => {
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
+
                 <div className="relative mb-4">
                   <label
                     htmlFor="name"
@@ -199,7 +206,22 @@ const formPopUp = () => {
                     onChange={(e) => setContactNo(e.target.value)}
                   />
                 </div>
-
+                {/* <div className="relative mb-4">
+                  <label
+                    htmlFor="name"
+                    className="leading-7 text-sm text-gray-600"
+                  >
+                    About Exhibit
+                  </label>
+                  <input
+                    value={message}
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    onChange={(e) => setMessage(e.target.value)}
+                  />
+                </div> */}
 
                 <div className="relative mb-4">
                   <label
@@ -220,16 +242,43 @@ const formPopUp = () => {
                   />
                 </div>
               </form>
-
-          
             </div>
+
+            {uploadFlag && (
+              <div
+                class="bg-green-100 rounded-lg py-5 px-6 mb-4 text-base text-green-700 "
+                role="alert"
+              >
+                Your Image has been uploaded.Our Admin will get back to you soon!
+              </div>
+            )}
+
+            {erroruploaFlag && (
+              <div
+                class="bg-red-100 rounded-lg py-5 px-6 mb-4 text-base text-red-700 "
+                role="alert"
+              >
+                Their may be error in uploading image or sending mail, Please Try Later!
+              </div>
+            )}
+            {emptyFieldError && (
+              <div
+                class="bg-red-100 rounded-lg py-5 px-6 mb-4 text-base text-red-700 "
+                role="alert"
+              >
+                All fields are required!
+              </div>
+            )}
+
+       
             <div className="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
               <button
                 type="button"
                 className="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
                 data-bs-dismiss="modal"
+                onClick={handleCancelClick}
               >
-                Close
+                Close & reset
               </button>
               <button
                 type="button"
@@ -241,7 +290,6 @@ const formPopUp = () => {
             </div>
           </div>
         </div>
-        
       </div>
     </>
   );
