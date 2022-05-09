@@ -20,4 +20,8 @@ module.exports = {
     important: true,
   },
   plugins: [require("tw-elements/dist/plugin")],
+  screens:{
+    sm:"320px",
+
+  }
 };

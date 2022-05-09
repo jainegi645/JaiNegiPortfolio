@@ -7,7 +7,7 @@ const WhatsupButton = () => {
     <div className=" float my-float">
       <a
         href="https://api.whatsapp.com/send?phone=919680099627"
-        class=""
+        className=""
         target="_blank"
       >
         <img

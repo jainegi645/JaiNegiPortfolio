@@ -57,6 +57,20 @@ body {
  /* the slides */
  .slick-slide {
   padding-top: 1em ;
+  z-index: -1 !important; 
+  position: relative !important;
+ 
+}
+/* .slick-current{
+  z-index: 1 !important; 
+
+} */
+.slick-slider{
+  position: relative !important;
+  z-index: 1 !important; 
+}
+.higher_zindex {
+  z-index: 9999 !important;
 }
 
 
@@ -87,9 +101,13 @@ body {
 	text-align:center;
   font-size:30px;
 	/* box-shadow: 2px 2px 3px #999; */
-  z-index:100;
+  z-index:9;
 }
 
 .my-float{
 	margin-top:16px;
 }
+
+/* .line-break {
+  white-space: pre-wrap !important;
+} */

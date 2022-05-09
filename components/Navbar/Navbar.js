@@ -39,21 +39,21 @@ function Navbar() {
               Home
             </a>
           </Link>
-          <Link href="/AboutUs" smooth={true} duration={1000}>
+          <Link href="/AboutMe" smooth={true} duration={1000}>
             <a className=" hover:bg-heroButton hover:shadow-xl hover:text-white rounded-sm px-5 py-2 cursor-pointer">
-              About Us
+              About Me
             </a>
           </Link>
 
-          <div class="flex justify-center border-none items-center">
+          <div className="flex justify-center border-none items-center">
             <div>
-              <div class="dropdown relative flex items-center hover:bg-heroButton px-4 py-2 cursor-pointer group">
+              <div className="dropdown relative flex items-center hover:bg-heroButton px-4 py-2 cursor-pointer group">
                 <Link href="/Catalouge" smooth={true} duration={1000}>
                   <a>Catalouge</a>
                 </Link>
 
                 <button
-                  class="dropdown-toggle group-hover:block  rounded-sm hover:bg-heroButton hover:shadow-xl leading-tight transition duration-150 ease-in-out flex items-center whitespace-nowrap"
+                  className="dropdown-toggle group-hover:block group-hover:z-50  z-50 rounded-sm hover:bg-heroButton hover:shadow-xl leading-tight transition duration-150 ease-in-out flex items-center whitespace-nowrap"
                   type="button"
                   id="dropdownMenuButton1"
                   data-bs-toggle="dropdown"
@@ -64,7 +64,7 @@ function Navbar() {
                     focusable="false"
                     data-prefix="fas"
                     data-icon="caret-down"
-                    class="w-2 ml-2"
+                    className="w-2 ml-2"
                     role="img"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 320 512"
@@ -77,12 +77,12 @@ function Navbar() {
                 </button>
 
                 <ul
-                  class="dropdown-menu -left-0  group-hover:block px-4 py-2 min-w-max absolute bg-white text-base  list-none rounded-lg shadow-lg mt-32 hidden md:hover:block bg-clip-padding border-none"
+                  className="dropdown-menu higher_zindex -left-0 group-hover:z-50 group-hover:block px-4 py-2 min-w-max absolute bg-white text-base  list-none rounded-lg shadow-lg mt-32 hidden md:hover:block bg-clip-padding border-none"
                   aria-labelledby="dropdownMenuButton1"
                 >
-                  <li>
+                  <li >
                     <a
-                      class="
+                      className="
               dropdown-item
               text-sm
               py-2
@@ -109,13 +109,14 @@ function Navbar() {
                       Paintings
                     </a>
                   </li>
-                  <li>
+                  <li className="z-50 " >
                     <a
-                      class="
+                      className="
               dropdown-item
               text-sm
               py-2
               px-4
+              z-50
               font-normal
               block
               w-full
@@ -142,15 +143,15 @@ function Navbar() {
             </div>
           </div>
 
-          <div class="flex justify-center border-none items-center">
+          <div className="flex justify-center border-none items-center">
             <div>
-              <div class="dropdown relative flex items-center hover:bg-heroButton px-4 py-2 cursor-pointer group">
+              <div className="dropdown relative  flex items-center hover:bg-heroButton px-4 py-2 cursor-pointer group">
                 <Link href="/Literature" smooth={true} duration={1000}>
                   <a>Literature</a>
                 </Link>
 
                 <button
-                  class="dropdown-toggle group-hover:block  rounded-sm hover:bg-heroButton hover:shadow-xl leading-tight transition duration-150 ease-in-out flex items-center whitespace-nowrap"
+                  className="dropdown-toggle group-hover:block  rounded-sm hover:bg-heroButton hover:shadow-xl leading-tight transition duration-150 ease-in-out flex items-center whitespace-nowrap"
                   type="button"
                   id="dropdownMenuButton1"
                   data-bs-toggle="dropdown"
@@ -161,7 +162,7 @@ function Navbar() {
                     focusable="false"
                     data-prefix="fas"
                     data-icon="caret-down"
-                    class="w-2 ml-2"
+                    className="w-2 ml-2"
                     role="img"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 320 512"
@@ -174,12 +175,12 @@ function Navbar() {
                 </button>
 
                 <ul
-                  class="dropdown-menu -left-0  group-hover:block px-4 py-2 min-w-max absolute bg-white text-base  list-none rounded-lg shadow-lg mt-32 hidden md:hover:block bg-clip-padding border-none"
+                  className="dropdown-menu -left-0  group-hover:block px-4 py-2 min-w-max absolute bg-white text-base  list-none rounded-lg shadow-lg mt-32 hidden md:hover:block bg-clip-padding border-none"
                   aria-labelledby="dropdownMenuButton1"
                 >
                   <li>
                     <a
-                      class="
+                      className="
               dropdown-item
               text-sm
               py-2
@@ -187,7 +188,6 @@ function Navbar() {
               font-normal
               block
               w-full
-              z-50
               whitespace-nowrap
               bg-transparent
               text-gray-700
@@ -208,7 +208,7 @@ function Navbar() {
                   </li>
                   <li>
                     <a
-                      class="
+                      className="
               dropdown-item
               text-sm
               py-2
@@ -294,20 +294,20 @@ function Navbar() {
             </div>
             <div className="flex ml-8 pt-12">
               <img src="https://img.icons8.com/material-outlined/24/000000/about.png" />
-              <Link href="/AboutUs" smooth={true} duration={1000}>
-                <a className="text-lg  pl-2">About Us</a>
+              <Link href="/AboutMe" smooth={true} duration={1000}>
+                <a className="text-lg  pl-2">About Me</a>
               </Link>
             </div>
 
             {/* accordian starts here */}
             <div
-              class="accordion accordion-flush"
+              className="accordion accordion-flush"
               id="accordionFlushExample border-b-0 "
             >
-              <div class="accordion-item border-t-0 border-l-0 border-r-0 border-none rounded-none bg-white border ">
-                <h2 class="accordion-header mb-0" id="flush-headingOne">
+              <div className="accordion-item border-t-0 border-l-0 border-r-0 border-none rounded-none bg-white border ">
+                <h2 className="accordion-header mb-0" id="flush-headingOne">
                   <button
-                    class=" pt-12 accordion-button text-lg relative flex items-center w-full  text-left bg-white rounded-none transition focus:outline-none"
+                    className=" pt-12 accordion-button text-lg relative flex items-center w-full  text-left bg-white rounded-none transition focus:outline-none"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#flush-collapseOne"
@@ -326,11 +326,11 @@ function Navbar() {
 
                 <div
                   id="flush-collapseOne"
-                  class="accordion-collapse border-0 collapse show"
+                  className="accordion-collapse border-0 collapse show"
                   aria-labelledby="flush-headingOne"
                   data-bs-parent="#accordionFlushExample"
                 >
-                  <div class="accordion-body py-4 px-5">
+                  <div className="accordion-body py-4 px-5">
                     <ul>
                       <li>
                         <a
@@ -349,7 +349,7 @@ function Navbar() {
                       </li>
                     </ul>
                   </div>
-                  <div class="accordion-body py-4 px-5">
+                  <div className="accordion-body py-4 px-5">
                     <ul>
                       <li>
                         <a
@@ -371,11 +371,11 @@ function Navbar() {
                 </div>
               </div>
 
-              <div class="accordion accordion-flush" id="accordionFlushExample">
-                <div class="accordion-item border-l-0 border-r-0 rounded-none bg-white  border-gray-200">
-                  <h2 class="accordion-header mb-0" id="flush-headingThree">
+              <div className="accordion accordion-flush" id="accordionFlushExample">
+                <div className="accordion-item border-l-0 border-r-0 rounded-none bg-white  border-gray-200">
+                  <h2 className="accordion-header mb-0" id="flush-headingThree">
                     <button
-                      class=" pt-12 accordion-button text-lg relative flex items-center w-full  text-left bg-white rounded-none transition focus:outline-none"
+                      className=" pt-12 accordion-button text-lg relative flex items-center w-full  text-left bg-white rounded-none transition focus:outline-none"
                       type="button"
                       data-bs-toggle="collapse"
                       data-bs-target="#flush-collapseThree"
@@ -393,11 +393,11 @@ function Navbar() {
                   </h2>
                   <div
                     id="flush-collapseThree"
-                    class="accordion-collapse collapse"
+                    className="accordion-collapse collapse"
                     aria-labelledby="flush-headingThree"
                     data-bs-parent="#accordionFlushExample"
                   >
-                    <div class="accordion-body py-4 px-5">
+                    <div className="accordion-body py-4 px-5">
                       <ul>
                         <li>
                           <a
@@ -416,7 +416,7 @@ function Navbar() {
                         </li>
                       </ul>
                     </div>
-                    <div class="accordion-body py-4 px-5">
+                    <div className="accordion-body py-4 px-5">
                       <ul>
                         <li>
                           <a

@@ -3,6 +3,8 @@ import emailjs from "@emailjs/browser";
 import axios from "axios";
 
 const formPopUp = () => {
+  let randomString = Math.random().toString(36);
+
   const [name, setName] = useState("");
   const [title, setTitle] = useState("");
   const [size, setSize] = useState("");
@@ -14,7 +16,7 @@ const formPopUp = () => {
   const [uploadFlag, setuploadFlag] = useState(false);
   const [erroruploaFlag, setErrorUploadFlag] = useState(false);
   const [emptyFieldError, setemptyFieldError] = useState(false);
-  // const [errorMailFlag, setErrorMailFlag] = useState(false);
+  const [clearImageinput, setClearImageinput] = useState(randomString);
 
   const uploadImage = async () => {
     if(!name || !title || !size || !medium || !email || !contactNo || !imageSelected){
@@ -64,7 +66,16 @@ const formPopUp = () => {
     setuploadFlag(false);
     setErrorUploadFlag(false);
     setemptyFieldError(false);
-   
+    setName("");
+    setTitle("");
+    setSize("");
+    setMedium("");
+    setEmail("");
+    setContactNo("");
+    setImageSelected("");
+    setCloudinaryRes("");
+    setClearImageinput('');
+
   };
 
   return (
@@ -206,22 +217,7 @@ const formPopUp = () => {
                     onChange={(e) => setContactNo(e.target.value)}
                   />
                 </div>
-                {/* <div className="relative mb-4">
-                  <label
-                    htmlFor="name"
-                    className="leading-7 text-sm text-gray-600"
-                  >
-                    About Exhibit
-                  </label>
-                  <input
-                    value={message}
-                    type="text"
-                    id="name"
-                    name="name"
-                    className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                    onChange={(e) => setMessage(e.target.value)}
-                  />
-                </div> */}
+         
 
                 <div className="relative mb-4">
                   <label
@@ -231,6 +227,7 @@ const formPopUp = () => {
                     Photo
                   </label>
                   <input
+                      key={clearImageinput || ''}
                     type="file"
                     id="file"
                     name="file"

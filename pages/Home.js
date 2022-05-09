@@ -10,8 +10,6 @@ const Home = () => {
     <div className="bg-slate-50">
       {/* <Alert/> */}
       <Carousel />
-    
-      
     </div>
   );
 };

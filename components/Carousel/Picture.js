@@ -9,7 +9,7 @@ const Picture = (props) => {
     {/* <div className="w-auto lg:pt-5   lg:flex flex items-end lg:justify-evenly lg:align-middle "> */}
       {/* <TextContainer Title={props.Title} 
                 Description={props.Description} /> */}
-      <Image className=" -z-10 bg-cover h-screen pl-7" src={props.src}  height={650} width={500}/>
+      <Image className=" -z-1 bg-cover h-screen pl-7" src={props.src}  height={650} width={500}/>
     {/* </div> */}
     
     </>

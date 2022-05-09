@@ -1,24 +1,19 @@
-import React from "react";
-import aboutMe from "../public/aboutme.jpg"
+import React from 'react';
 import Image from "next/image";
-import Navbar from "../components/Navbar/Navbar";
-import Fotter from "../components/Fotter/Fotter";
 
-const AboutUs = () => {
+
+const About = (props) => {
+
   return (
     <div>
-      <Navbar/>
-      <section className="bg-slate-50 ">
-        <div className="container px-6 py-8 mx-auto">
-          <div className="items-center lg:flex justify-evenly">
-
-          <div className="mt-8 lg:mt-0 lg:w-1/2">
+                  <div className="items-center lg:flex justify-evenly">
+            <div className="mt-8 lg:mt-0 lg:w-1/2">
               <div className="flex items-center  ">
                 <div className="max-w-lg">
                   <Image
                     className="object-cover object-center w-full h-64 rounded-md shadow"
-                    src={aboutMe}
-                    alt=""
+                    src={props.src}
+                    alt="image"
                     height={650}
                     width={500}
                   />
@@ -26,21 +21,16 @@ const AboutUs = () => {
               </div>
             </div>
 
-
             <div className="lg:w-1/2">
               <h2 className="lg:text-7xl text-5xl font-normal lg:font-normal text-slate-700  ">
-                About Me
+                {props.title}
               </h2>
 
               <p className="mt-4 text-gray-500  lg:max-w-md text-xl">
-                Hi I am Ravi Dhar,        
-                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Illum in sed non alias, fugiat, commodi nemo ut fugit corrupti
-                dolorem sequi ex veniam consequuntur id, maiores beatae ipsa
-                omnis aliquam?
+                {props.description}
               </p>
 
-              <div className="flex items-center mt-6 -mx-2">
+              {/* <div className="flex items-center mt-6 -mx-2">
                 <a className="mx-2" href="#" aria-label="Twitter">
                   <svg
                     className="w-5 h-5 text-heroButton fill-current  hover:text-gray-600 "
@@ -60,20 +50,11 @@ const AboutUs = () => {
                     <path d="M426.8 64H85.2C73.5 64 64 73.5 64 85.2v341.6c0 11.7 9.5 21.2 21.2 21.2H256V296h-45.9v-56H256v-41.4c0-49.6 34.4-76.6 78.7-76.6 21.2 0 44 1.6 49.3 2.3v51.8h-35.3c-24.1 0-28.7 11.4-28.7 28.2V240h57.4l-7.5 56H320v152h106.8c11.7 0 21.2-9.5 21.2-21.2V85.2c0-11.7-9.5-21.2-21.2-21.2z" />
                   </svg>
                 </a>
-
-             
-
-              </div>
+              </div> */}
             </div>
-
-           
-
           </div>
-        </div>
-      </section>
-      <Fotter/>
     </div>
-  );
-};
+  )
+}
 
-export default AboutUs;
+export default About

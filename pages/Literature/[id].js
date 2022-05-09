@@ -9,6 +9,9 @@ import Navbar from "../../components/Navbar/Navbar";
 import Fotter from "../../components/Fotter/Fotter";
 
 const FullLiteraturePage = ({ literature }) => {
+  const source =  literature.attributes.Content.replace(/\n/gi, '\n &nbsp;');
+
+   
   function formatMyDate(value, locale = "en-US") {
     return new Date(value).toLocaleDateString(locale);
   }
@@ -40,11 +43,12 @@ const FullLiteraturePage = ({ literature }) => {
           parserOptions={{ commonmark: true }}
           remarkPlugins={[remarkGfm, remarkBreaks]}
           rehypePlugins={[rehypeRaw]}
-          children={literature.attributes.Content}
-          className="leading-relaxed mt-5 mb-3 whitespace-normal"
-        >
+          // children={literature.attributes.Content}
+          children={source}
+          escapeHtml={false}
+          className="leading-relaxed mt-5 mb-3 whitespace-normal line-break"
+        />
          
-        </ReactMarkdown>
       </div>
     </div>
     <Fotter/>
