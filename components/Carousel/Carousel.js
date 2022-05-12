@@ -71,8 +71,8 @@ export default function Carousel() {
     ],
   };
   return (
-    <div className="">
-
+    <div className="relative">
+       
       <div>
         <Slider {...settings} className="">
           {status === "success" &&

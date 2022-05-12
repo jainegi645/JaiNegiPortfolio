@@ -10,7 +10,7 @@ const Catalouge = () => {
   const router = useRouter();
   const [catalouge, setCatalouge] = useState([]);
   const [option, setOption] = useState(`populate=*`);
- 
+
   useEffect(() => {
     if (router.query.filter === "Paintings") {
       setOption(`filters[filter][$eq]=paintings&populate=*`);
@@ -34,8 +34,6 @@ const Catalouge = () => {
     fetchCatalouge();
   }, [option]);
 
-
-
   //responsive breakpoits for masonry layout
   const breakpointColumnsObj = {
     default: 4,
@@ -53,8 +51,8 @@ const Catalouge = () => {
             Catalouge
           </h2>
           <p className="mt-4 text-gray-500 lg:max-w-xl text-xl">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum in
-            sed non alias, fugiat
+            Humble is who hurt none, even that the feeble one Show nerve to
+            utter truth to procure the ultimate ken
           </p>
         </div>
 
@@ -150,14 +148,13 @@ const Catalouge = () => {
             "
                     onClick={() => {
                       setOption(`populate=*`);
-                      router.push({
-                        pathname: '/Catalouge',
-                      }, 
-                      '/Catalouge', { shallow: true }
-                      )
-
-                    
-                    
+                      router.push(
+                        {
+                          pathname: "/Catalouge",
+                        },
+                        "/Catalouge",
+                        { shallow: true }
+                      );
                     }}
                   >
                     All
@@ -181,13 +178,14 @@ const Catalouge = () => {
             "
                     onClick={() => {
                       setOption(`filters[filter][$eq]=paintings&populate=*`);
-                      router.push({
-                        pathname: '/Catalouge',
-                      }, 
-                      '/Catalouge/Paintings', { shallow: true }
-                      )
-                    }
-                    }
+                      router.push(
+                        {
+                          pathname: "/Catalouge",
+                        },
+                        "/Catalouge/Paintings",
+                        { shallow: true }
+                      );
+                    }}
                   >
                     Paintings
                   </a>
@@ -207,16 +205,16 @@ const Catalouge = () => {
               text-gray-700
               hover:bg-gray-100
             "
-                    onClick={() =>{
-                      setOption(`filters[filter][$eq]=portraits&populate=*`)
-                      router.push({
-                        pathname: '/Catalouge',
-                      }, 
-                      '/Catalouge/Portraits', { shallow: true }
-                      )
-                      
-                    }
-                    }
+                    onClick={() => {
+                      setOption(`filters[filter][$eq]=portraits&populate=*`);
+                      router.push(
+                        {
+                          pathname: "/Catalouge",
+                        },
+                        "/Catalouge/Portraits",
+                        { shallow: true }
+                      );
+                    }}
                   >
                     Portraits
                   </a>

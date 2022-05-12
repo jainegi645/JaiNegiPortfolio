@@ -7,7 +7,7 @@ import Alert from "../components/Alert/Alert";
 
 const Home = () => {
   return (
-    <div className="bg-slate-50">
+    <div className="bg-slate-50 ">
       {/* <Alert/> */}
       <Carousel />
     </div>

@@ -42,8 +42,8 @@ const Exihibition = () => {
             Exihibition
           </h2>
           <p className="mt-4 text-gray-500 lg:max-w-xl text-xl">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum in
-            sed non alias, fugiat
+            Step ahead with courage and don’t you fear Company with wise and
+            fruit will you bear
           </p>
         </div>
         <FormPopUp />
@@ -64,7 +64,7 @@ const Exihibition = () => {
               title={item.attributes.Title}
               size={item.attributes.size}
               medium={item.attributes.medium}
-              artist = {item.attributes.Artist}
+              artist={item.attributes.Artist}
             />
           );
         })}

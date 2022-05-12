@@ -29,8 +29,8 @@ const Literature = ({ literatures, literaturesHindi }) => {
           </h2>
 
           <p className="mt-4 text-gray-500  lg:max-w-md text-xl">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum in
-            sed non alias, fugiat
+          No sense in counting ripples that wisdom your cripples Watch out for
+            huge tides your wisdom will triples
           </p>
         </div>
 
@@ -210,7 +210,6 @@ const Literature = ({ literatures, literaturesHindi }) => {
                       Filter={item.attributes.Filter}
                       Title={item.attributes.Title}
                       Content={item.attributes.Content}
-                      CoverImg={item.attributes.CoverImage.data.attributes.url}
                     />
                   );
                 })
@@ -224,9 +223,7 @@ const Literature = ({ literatures, literaturesHindi }) => {
                         Filter={item.attributes.Filter}
                         Title={item.attributes.Title}
                         Content={item.attributes.Content}
-                        CoverImg={
-                          item.attributes.CoverImage.data.attributes.url
-                        }
+                       
                       />
                     );
                   })}

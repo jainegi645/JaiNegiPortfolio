@@ -20,19 +20,16 @@ const Fotter = () => {
               <span className="ml-3 text-xl text-white">Artist Ravi Dhar</span>
             </a>
             <p className="mt-2 text-sm text-slate-300">
-              Air plant banjo lyft occupy retro adaptogen indego
+              Showing superiority is arrogance being inferior is ignorance
+              Thinking cowardly is demise but being wise is emergence
             </p>
           </div>
           <div className="flex-grow justify-end flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
-
-
-      
-
             <div className="md:w-1/2 w-full px-4">
               <h2 className="font-medium text-white tracking-widest text-xl mb-3">
                 Info
               </h2>
-              <p className=" mb-1 text-slate-300">
+              {/* <p className=" mb-1 text-slate-300">
                  Plot No. 29, Near Shiv Park
                 </p>
                 <p className="text-slate-300  mb-1">
@@ -40,17 +37,12 @@ const Fotter = () => {
                 </p>
                 <p className="text-slate-300  mb-1">
                    Pilani - 333031(Rajasthan) INDIA
-                </p>
-                <p className="text-slate-300  mb-1">
-                   Email:rddharbhardwaj02@gmail.com
-                </p>
-                <p className="text-slate-300  mb-1">
-                   Contact No: +91 9680099627, +91 9588046519
-                </p>
-                
+                </p> */}
+              <p className="text-slate-300  mb-1">
+                Email: artistravidhar.in@gmail.com
+              </p>
+              <p className="text-slate-300  mb-1">Contact No: +91 9588046519</p>
             </div>
-            
-          
           </div>
         </div>
         <div className="bg-navBg">
@@ -68,7 +60,6 @@ const Fotter = () => {
             </p>
             <span className="inline-flex sm:ml-auto sm:mt-0 text-center mt-2 justify-center sm:justify-start text-white">
               Developed by - Jai Negi. Need a Website? I Can Help: 8005619348
-        
             </span>
           </div>
         </div>

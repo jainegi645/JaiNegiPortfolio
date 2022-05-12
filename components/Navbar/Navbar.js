@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 // import {Link} from 'react-scroll';
@@ -9,6 +9,11 @@ import { useRouter } from "next/router";
 
 function Navbar() {
   // let history = useHistory();
+
+  useEffect(() => {
+    console.log(router.pathname);
+  }, [])
+  
   const router = useRouter();
   const [size, setSize] = useState(`0px`);
 
@@ -45,15 +50,16 @@ function Navbar() {
             </a>
           </Link>
 
+
           <div className="flex justify-center border-none items-center">
-            <div>
               <div className="dropdown relative flex items-center hover:bg-heroButton px-4 py-2 cursor-pointer group">
                 <Link href="/Catalouge" smooth={true} duration={1000}>
                   <a>Catalouge</a>
                 </Link>
-
+                
+                 
                 <button
-                  className="dropdown-toggle group-hover:block group-hover:z-50  z-50 rounded-sm hover:bg-heroButton hover:shadow-xl leading-tight transition duration-150 ease-in-out flex items-center whitespace-nowrap"
+                  className="dropdown-toggle group-hover:block group-hover:z-50 z-50 rounded-sm hover:bg-heroButton hover:shadow-xl leading-tight transition duration-150 ease-in-out flex items-center whitespace-nowrap"
                   type="button"
                   id="dropdownMenuButton1"
                   data-bs-toggle="dropdown"
@@ -62,7 +68,7 @@ function Navbar() {
                   <svg
                     aria-hidden="true"
                     focusable="false"
-                    data-prefix="fas"
+                    data-prefix="fas" 
                     data-icon="caret-down"
                     className="w-2 ml-2"
                     role="img"
@@ -77,7 +83,7 @@ function Navbar() {
                 </button>
 
                 <ul
-                  className="dropdown-menu higher_zindex -left-0 group-hover:z-50 group-hover:block px-4 py-2 min-w-max absolute bg-white text-base  list-none rounded-lg shadow-lg mt-32 hidden md:hover:block bg-clip-padding border-none"
+                  className="dropdown-menu  -left-0 group-hover:block px-4 py-2 min-w-max absolute bg-white text-base  list-none rounded-lg shadow-lg mt-32 hidden md:hover:block bg-clip-padding border-none"
                   aria-labelledby="dropdownMenuButton1"
                 >
                   <li >
@@ -140,7 +146,6 @@ function Navbar() {
                   </li>
                 </ul>
               </div>
-            </div>
           </div>
 
           <div className="flex justify-center border-none items-center">
@@ -449,7 +454,7 @@ function Navbar() {
           </ul>
           <div className="flex pt-12 ml-7 space-x-7">
             <a
-              // href="https://www.instagram.com/insuranceservicepilani/"
+              href="https://www.instagram.com/ravi.dhar3/?hl=en"
               className="w-10 h-2/4 lg:w-11 lg:h-2/4 cursor-pointer"
               target="_blank"
             >
@@ -459,7 +464,7 @@ function Navbar() {
               />
             </a>
             <a
-              // href="https://www.facebook.com/insuranceservicepilani/"
+              href="https://www.facebook.com/ravi.dhar3"
               className="w-10 h-2/4 lg:w-11 lg:h-2/4 cursor-pointer"
               target="_blank"
             >
@@ -468,7 +473,7 @@ function Navbar() {
                 alt="facebook"
               />
             </a>
-            <a
+            {/* <a
               // href="https://goo.gl/maps/5n3KMaxyvccE9rrGA"
               className="w-10 h-1/4 lg:w-10 lg:h-2/4 cursor-pointer"
               target="_blank"
@@ -478,7 +483,7 @@ function Navbar() {
                 alt="google map"
                 src="https://img.icons8.com/color/40/000000/google-maps.png"
               />
-            </a>
+            </a> */}
           </div>
         </nav>
       </div>

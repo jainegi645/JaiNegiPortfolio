@@ -12,7 +12,7 @@ export default function Index() {
   return (
     <SimpleReactLightbox>
       <div>
-        <Navbar />
+        <Navbar/>
         <Home />
         {/* <AboutUs/>
       <CatalougeHome/>
