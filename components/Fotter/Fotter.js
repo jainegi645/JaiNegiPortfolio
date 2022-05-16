@@ -21,6 +21,8 @@ const Fotter = () => {
             </a>
             <p className="mt-2 text-sm text-slate-300">
               Showing superiority is arrogance being inferior is ignorance
+            </p>
+            <p className="text-sm text-slate-300">
               Thinking cowardly is demise but being wise is emergence
             </p>
           </div>

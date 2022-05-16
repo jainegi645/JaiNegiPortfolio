@@ -51,8 +51,10 @@ const Catalouge = () => {
             Catalouge
           </h2>
           <p className="mt-4 text-gray-500 lg:max-w-xl text-xl">
-            Humble is who hurt none, even that the feeble one Show nerve to
-            utter truth to procure the ultimate ken
+            Humble is who hurt none, even that the feeble one
+          </p>
+          <p className=" text-gray-500 lg:max-w-xl text-xl">
+            Show nerve to utter truth to procure the ultimate ken
           </p>
         </div>
 

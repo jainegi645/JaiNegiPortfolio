@@ -28,9 +28,11 @@ const Literature = ({ literatures, literaturesHindi }) => {
             Literature
           </h2>
 
-          <p className="mt-4 text-gray-500  lg:max-w-md text-xl">
-          No sense in counting ripples that wisdom your cripples Watch out for
-            huge tides your wisdom will triples
+          <p className="mt-4 text-gray-500  lg:max-w-xl text-xl">
+            No sense in counting ripples that wisdom your cripples
+          </p>
+          <p className="text-gray-500  lg:max-w-xl text-xl">
+            Watch out for huge tides your wisdom will triples
           </p>
         </div>
 
@@ -119,14 +121,13 @@ const Literature = ({ literatures, literaturesHindi }) => {
                     // onClick={() => setOption("All")}
                     onClick={() => {
                       setOption(`All`);
-                      router.push({
-                        pathname: '/Literature',
-                      }, 
-                      '/Literature', { shallow: true }
-                      )
-
-                    
-                    
+                      router.push(
+                        {
+                          pathname: "/Literature",
+                        },
+                        "/Literature",
+                        { shallow: true }
+                      );
                     }}
                   >
                     All
@@ -148,7 +149,6 @@ const Literature = ({ literatures, literaturesHindi }) => {
               text-gray-700
               hover:bg-gray-100
             "
-                 
                     onClick={() => {
                       setOption(`English`);
                       router.push(
@@ -223,7 +223,6 @@ const Literature = ({ literatures, literaturesHindi }) => {
                         Filter={item.attributes.Filter}
                         Title={item.attributes.Title}
                         Content={item.attributes.Content}
-                       
                       />
                     );
                   })}

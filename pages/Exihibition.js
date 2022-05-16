@@ -42,7 +42,10 @@ const Exihibition = () => {
             Exihibition
           </h2>
           <p className="mt-4 text-gray-500 lg:max-w-xl text-xl">
-            Step ahead with courage and don’t you fear Company with wise and
+            Step ahead with courage and don’t you fear 
+          </p>
+          <p className=" text-gray-500 lg:max-w-xl text-xl">
+         Company with wise and
             fruit will you bear
           </p>
         </div>
