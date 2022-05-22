@@ -26,20 +26,13 @@ const Fotter = () => {
               Thinking cowardly is demise but being wise is emergence
             </p>
           </div>
+
           <div className="flex-grow justify-end flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
             <div className="md:w-1/2 w-full px-4">
               <h2 className="font-medium text-white tracking-widest text-xl mb-3">
                 Info
               </h2>
-              {/* <p className=" mb-1 text-slate-300">
-                 Plot No. 29, Near Shiv Park
-                </p>
-                <p className="text-slate-300  mb-1">
-                   Gyan Vihar Colony, Behind BITS
-                </p>
-                <p className="text-slate-300  mb-1">
-                   Pilani - 333031(Rajasthan) INDIA
-                </p> */}
+           
               <p className="text-slate-300  mb-1">
                 Email: artistravidhar.in@gmail.com
               </p>
