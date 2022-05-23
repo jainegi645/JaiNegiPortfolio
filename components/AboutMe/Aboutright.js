@@ -1,7 +1,13 @@
 import React from "react";
 import Image from "next/image";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
+import remarkBreaks from "remark-breaks";
+import ReactMarkdown from "react-markdown";
 
 const aboutright = (props) => {
+  const source =  props.description.replace(/\n/gi, '\n &nbsp;');
+
   return (
     <>
       <div className="items-center lg:flex justify-evenly">
@@ -11,9 +17,14 @@ const aboutright = (props) => {
             {props.title}
           </h2>
 
-          <p className="mt-4 text-gray-500  lg:max-w-md text-xl">
-            {props.description}
-          </p>
+        
+          <ReactMarkdown
+            parserOptions={{ commonmark: true }}
+            remarkPlugins={[remarkGfm, remarkBreaks]}
+            rehypePlugins={[rehypeRaw]}
+            children={source}
+            className="mt-4 text-gray-500  lg:max-w-md text-xl"
+          />
         </div>
 
         <div className="mt-8 lg:mt-0 lg:w-1/2">

@@ -30,7 +30,7 @@ const LiteratureCard = (props) => {
               remarkPlugins={[remarkGfm, remarkBreaks]}
               rehypePlugins={[rehypeRaw]}
               children={props.Content}
-              className="leading-relaxed mt-5 mb-3 whitespace-normal"
+              className="leading-relaxed text-black mt-5 mb-3 whitespace-normal"
             />
           </div>
         </div>

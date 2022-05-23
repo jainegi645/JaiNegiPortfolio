@@ -16,6 +16,8 @@ const Catalouge = () => {
       setOption(`filters[filter][$eq]=paintings&populate=*`);
     } else if (router.query.filter === "Portraits") {
       setOption(`filters[filter][$eq]=portraits&populate=*`);
+    } else if (router.query.filter === "Sculptures") {
+      setOption(`filters[filter][$eq]=sculptures&populate=*`);
     }
   }, [router.query.filter]);
 
@@ -93,6 +95,9 @@ const Catalouge = () => {
                   : null ||
                     option === `filters[filter][$eq]=portraits&populate=*`
                   ? "Portraits"
+                  : null ||
+                    option === `filters[filter][$eq]=sculptures&populate=*`
+                  ? "Sculptures"
                   : null}
 
                 <svg
@@ -219,6 +224,35 @@ const Catalouge = () => {
                     }}
                   >
                     Portraits
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="
+              dropdown-item
+              text-sm
+              py-2
+              px-4
+              font-normal
+              block
+              w-full
+              whitespace-nowrap
+              bg-transparent
+              text-gray-700
+              hover:bg-gray-100
+            "
+                    onClick={() => {
+                      setOption(`filters[filter][$eq]=sculptures&populate=*`);
+                      router.push(
+                        {
+                          pathname: "/Catalouge",
+                        },
+                        "/Catalouge/Sculptures",
+                        { shallow: true }
+                      );
+                    }}
+                  >
+                    Sculptures
                   </a>
                 </li>
               </ul>

@@ -83,7 +83,7 @@ function Navbar() {
                 </button>
 
                 <ul
-                  className="dropdown-menu  -left-0 group-hover:block px-4 py-2 min-w-max absolute bg-white text-base  list-none rounded-lg shadow-lg mt-32 hidden md:hover:block bg-clip-padding border-none"
+                  className="dropdown-menu  -left-0 group-hover:block px-4 py-2 min-w-max absolute bg-white text-base  list-none rounded-lg shadow-lg mt-40 hidden md:hover:block bg-clip-padding border-none"
                   aria-labelledby="dropdownMenuButton1"
                 >
                   <li >
@@ -144,6 +144,35 @@ function Navbar() {
                       Portraits
                     </a>
                   </li>
+                  <li className="z-50 " >
+                    <a
+                      className="
+              dropdown-item
+              text-sm
+              py-2
+              px-4
+              z-50
+              font-normal
+              block
+              w-full
+              whitespace-nowrap
+              bg-transparent
+              text-gray-700
+              hover:bg-gray-100
+            "
+                      onClick={() => {
+                        router.push(
+                          {
+                            pathname: "/Catalouge",
+                            query: { filter: "Sculptures" },
+                          },
+                          "/Catalouge/Sculptures"
+                        );
+                      }}
+                    >
+                      Sculptures
+                    </a>
+                  </li>
                 </ul>
               </div>
           </div>
@@ -180,7 +209,7 @@ function Navbar() {
                 </button>
 
                 <ul
-                  className="dropdown-menu -left-0  group-hover:block px-4 py-2 min-w-max absolute bg-white text-base  list-none rounded-lg shadow-lg mt-32 hidden md:hover:block bg-clip-padding border-none"
+                  className="dropdown-menu -left-0  group-hover:block px-4 py-2 min-w-max absolute bg-white text-base  list-none rounded-lg shadow-lg mt-40 hidden md:hover:block bg-clip-padding border-none"
                   aria-labelledby="dropdownMenuButton1"
                 >
                   <li>
@@ -237,6 +266,34 @@ function Navbar() {
                       }}
                     >
                       English
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="
+              dropdown-item
+              text-sm
+              py-2
+              px-4
+              font-normal
+              block
+              w-full
+              whitespace-nowrap
+              bg-transparent
+              text-gray-700
+              hover:bg-gray-100
+            "
+                      onClick={() => {
+                        router.push(
+                          {
+                            pathname: "/Literature",
+                            query: { filter: "Kashmiri" },
+                          },
+                          "/Literature/Kashmiri"
+                        );
+                      }}
+                    >
+                      Kashmiri
                     </a>
                   </li>
                 </ul>

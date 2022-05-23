@@ -6,7 +6,6 @@ import CatalougeHome from "../components/Home/CatalougeHome";
 import LiteratureHome from "../components/Home/LiteratureHome";
 import ExhibitionHome from "../components/Home/ExhibitionHome";
 import Fotter from "../components/Fotter/Fotter";
-import FullLiteraturePage from "../components/Literature/FullLiteraturePage";
 
 export default function Index() {
   return (
