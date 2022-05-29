@@ -5,10 +5,13 @@ import Test from "../components/Catalouge/Test";
 import Navbar from "../components/Navbar/Navbar";
 import Fotter from "../components/Fotter/Fotter";
 import { useRouter } from "next/router";
+import ReactPaginate from "react-paginate";
 
 const Catalouge = () => {
   const router = useRouter();
   const [catalouge, setCatalouge] = useState([]);
+  const [pages, setPages] = useState([]);
+  const [pageNo, setPageNo] = useState(1);
   const [option, setOption] = useState(`populate=*`);
 
   useEffect(() => {
@@ -21,20 +24,24 @@ const Catalouge = () => {
     }
   }, [router.query.filter]);
 
+
   useEffect(() => {
     const fetchCatalouge = async () => {
-      let url = `https://dashboard-artist-ravi-dhar.herokuapp.com/api/catalouges?${option}`;
+      let url = `https://dashboard-artist-ravi-dhar.herokuapp.com/api/catalouges?${option}&pagination[page]=${pageNo}`;
       await axios
         .get(url)
         .then((response) => {
           setCatalouge(response.data.data);
+          // console.log(response.data.meta);
+          setPages(response.data.meta.pagination);
+          // setPageNo(response.data.meta.pagination.page);
         })
         .catch((error) => {
           console.log(error);
         });
     };
     fetchCatalouge();
-  }, [option]);
+  }, [option, pageNo]);
 
   //responsive breakpoits for masonry layout
   const breakpointColumnsObj = {
@@ -42,6 +49,11 @@ const Catalouge = () => {
     1100: 3,
     700: 2,
     500: 1,
+  };
+
+  const handlePageClick = ({ selected }) => {
+    console.log('prop from react paginate',selected);
+    setPageNo(selected+1);
   };
 
   return (
@@ -60,11 +72,13 @@ const Catalouge = () => {
           </p>
         </div>
 
-        <div class="md:flex md:justify-center mt-4 md:mt-0">
+
+
+        <div className="md:flex md:justify-center mt-4 md:mt-0">
           <div>
-            <div class="dropdown relative">
+            <div className="dropdown relative">
               <button
-                class="
+                className="
                   px-9 py-4 bg-cyan-600
           dropdown-toggle
           rounded-xl
@@ -105,7 +119,7 @@ const Catalouge = () => {
                   focusable="false"
                   data-prefix="fas"
                   data-icon="caret-down"
-                  class="w-2 ml-2"
+                  className="w-2 ml-2"
                   role="img"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 320 512"
@@ -117,7 +131,7 @@ const Catalouge = () => {
                 </svg>
               </button>
               <ul
-                class="
+                className="
           dropdown-menu
           min-w-max
           absolute
@@ -140,7 +154,7 @@ const Catalouge = () => {
               >
                 <li>
                   <a
-                    class="
+                    className="
               dropdown-item
               text-sm
               py-2
@@ -170,7 +184,7 @@ const Catalouge = () => {
 
                 <li>
                   <a
-                    class="
+                    className="
               dropdown-item
               text-sm
               py-2
@@ -185,6 +199,7 @@ const Catalouge = () => {
             "
                     onClick={() => {
                       setOption(`filters[filter][$eq]=paintings&populate=*`);
+                      setPageNo(1);
                       router.push(
                         {
                           pathname: "/Catalouge",
@@ -199,7 +214,7 @@ const Catalouge = () => {
                 </li>
                 <li>
                   <a
-                    class="
+                    className="
               dropdown-item
               text-sm
               py-2
@@ -214,6 +229,7 @@ const Catalouge = () => {
             "
                     onClick={() => {
                       setOption(`filters[filter][$eq]=portraits&populate=*`);
+                      setPageNo(1);
                       router.push(
                         {
                           pathname: "/Catalouge",
@@ -228,7 +244,7 @@ const Catalouge = () => {
                 </li>
                 <li>
                   <a
-                    class="
+                    className="
               dropdown-item
               text-sm
               py-2
@@ -243,6 +259,7 @@ const Catalouge = () => {
             "
                     onClick={() => {
                       setOption(`filters[filter][$eq]=sculptures&populate=*`);
+                      setPageNo(1);
                       router.push(
                         {
                           pathname: "/Catalouge",
@@ -260,6 +277,7 @@ const Catalouge = () => {
           </div>
         </div>
       </div>
+
 
       <Masonry
         breakpointCols={breakpointColumnsObj}
@@ -280,6 +298,24 @@ const Catalouge = () => {
           );
         })}
       </Masonry>
+      <div className="flex flex-row justify-center py-9">
+      <ReactPaginate
+          previousLabel="< previous"
+          breakLabel="..."
+          nextLabel="next >"
+          onPageChange={handlePageClick}
+          pageCount={pages.pageCount}
+          pageRangeDisplayed={2}
+          marginPagesDisplayed={2}
+          renderOnZeroPageCount={null}
+          containerClassName={"paginationBttns"}
+          previousLinkClassName={"previousBttn"}
+          nextLinkClassName={"nextBttn"}
+          disabledClassName={"paginationDisabled"}
+          activeClassName={"paginationActive"}
+        
+        />
+        </div>
       <Fotter />
     </div>
   );

@@ -1,25 +1,51 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import LiteratureCard from "../../components/Literature/LiteratureCard";
-import Navbar from "../../components/Navbar/Navbar";
-import Fotter from "../../components/Fotter/Fotter";
+import LiteratureCard from "../components/Literature/LiteratureCard";
+import Navbar from "../components/Navbar/Navbar";
+import Fotter from "../components/Fotter/Fotter";
 import { useRouter } from "next/router";
+import ReactPaginate from "react-paginate";
+
 
 const Literature = ({ literatures, literaturesHindi }) => {
   const router = useRouter();
-
-  const [option, setOption] = useState("All");
+  const [literature, setLiterature] = useState([]);
+  const [pageNo, setPageNo] = useState(1);
+  const [pages, setPages] = useState([]);
+  const [option, setOption] = useState(`populate=*`);
 
   useEffect(() => {
     if (router.query.filter === "Hindi") {
-      setOption("Hindi");
+      setOption(`filters[filter][$eq]=Hindi&populate=*`);
     } else if (router.query.filter === "English") {
-      setOption("English");
+      setOption(`filters[filter][$eq]=English&populate=*`);
     } else if (router.query.filter === "Kashmiri") {
-      setOption("Kashmiri");
+      setOption(`filters[filter][$eq]=Kashmiri&populate=*`);
     }
   }, [router.query.filter]);
 
+  useEffect(() => {
+    const fetchLiterature = async () => {
+      let url = `https://dashboard-artist-ravi-dhar.herokuapp.com/api/literatures?${option}&pagination[page]=${pageNo}`;
+      await axios
+        .get(url)
+        .then((response) => {
+          setLiterature(response.data.data);
+          setPages(response.data.meta.pagination);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+    fetchLiterature();
+  }, [option, pageNo]);
+
+
+  
+  const handlePageClick = ({ selected }) => {
+    setPageNo(selected+1);
+  };
+  
   return (
     <>
       <Navbar />
@@ -65,7 +91,16 @@ const Literature = ({ literatures, literaturesHindi }) => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                {option}
+                {option === `populate=*`
+                  ? "All"
+                  : null || option === `filters[filter][$eq]=Hindi&populate=*`
+                  ? "Hindi"
+                  : null || option === `filters[filter][$eq]=English&populate=*`
+                  ? "English"
+                  : null ||
+                    option === `filters[filter][$eq]=Kashmiri&populate=*`
+                  ? "Kashmiri"
+                  : null}
 
                 <svg
                   aria-hidden="true"
@@ -120,9 +155,8 @@ const Literature = ({ literatures, literaturesHindi }) => {
               text-gray-700
               hover:bg-gray-100
             "
-                    // onClick={() => setOption("All")}
                     onClick={() => {
-                      setOption(`All`);
+                      setOption(`populate=*`);
                       router.push(
                         {
                           pathname: "/Literature",
@@ -152,7 +186,8 @@ const Literature = ({ literatures, literaturesHindi }) => {
               hover:bg-gray-100
             "
                     onClick={() => {
-                      setOption(`English`);
+                      setOption(`filters[filter][$eq]=English&populate=*`);
+                      setPageNo(1);
                       router.push(
                         {
                           pathname: "/Literature",
@@ -182,7 +217,8 @@ const Literature = ({ literatures, literaturesHindi }) => {
             "
                     // onClick={() => setOption("Hindi")}
                     onClick={() => {
-                      setOption(`Hindi`);
+                      setOption(`filters[filter][$eq]=Hindi&populate=*`);
+                      setPageNo(1);
                       router.push(
                         {
                           pathname: "/Literature",
@@ -211,7 +247,8 @@ const Literature = ({ literatures, literaturesHindi }) => {
               hover:bg-gray-100
             "
                     onClick={() => {
-                      setOption(`Kashmiri`);
+                      setOption(`filters[filter][$eq]=Kashmiri&populate=*`);
+                      setPageNo(1);
                       router.push(
                         {
                           pathname: "/Literature",
@@ -232,50 +269,43 @@ const Literature = ({ literatures, literaturesHindi }) => {
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap -m-4">
-            {option === "All"
-              ? literatures.map((item) => {
-                  return (
-                    <LiteratureCard
-                      key={item.id}
-                      id={item.id}
-                      Filter={item.attributes.Filter}
-                      Title={item.attributes.Title}
-                      Content={item.attributes.Content}
-                    />
-                  );
-                })
-              : literatures
-                  .filter((elem) => elem.attributes.Filter === option)
-                  .map((item) => {
-                    return (
-                      <LiteratureCard
-                        key={item.id}
-                        id={item.id}
-                        Filter={item.attributes.Filter}
-                        Title={item.attributes.Title}
-                        Content={item.attributes.Content}
-                      />
-                    );
-                  })}
+            {literature.map((item) => {
+              return (
+                <LiteratureCard
+                  key={item.id}
+                  id={item.id}
+                  Filter={item.attributes.Filter}
+                  Title={item.attributes.Title}
+                  Content={item.attributes.Content}
+                />
+              );
+            })}
           </div>
         </div>
       </section>
+      <div className="flex flex-row justify-center py-9">
+      <ReactPaginate
+          previousLabel="< previous"
+          breakLabel="..."
+          nextLabel="next >"
+          onPageChange={handlePageClick}
+          pageCount={pages.pageCount}
+          pageRangeDisplayed={2}
+          marginPagesDisplayed={2}
+          renderOnZeroPageCount={null}
+          containerClassName={"paginationBttns"}
+          previousLinkClassName={"previousBttn"}
+          nextLinkClassName={"nextBttn"}
+          disabledClassName={"paginationDisabled"}
+          activeClassName={"paginationActive"}
+        
+        />
+        </div>
       <Fotter />
     </>
   );
 };
 
-export async function getServerSideProps(context) {
-  const res = await axios(
-    `https://dashboard-artist-ravi-dhar.herokuapp.com/api/literatures?populate=*`
-  );
-  const data = await res.data.data;
 
-  return {
-    props: {
-      literatures: data,
-    },
-  };
-}
 
 export default Literature;
