@@ -38,7 +38,7 @@ const Fotter = () => {
               </p>
               <p className="text-slate-300  mb-1">Contact No: +91 9588046519</p>
 
-              <div className="flex pt-2   space-x-2">
+              <div className="flex pt-2 justify-center md:justify-start space-x-2">
             <a
               href="https://www.instagram.com/ravi.dhar3/?hl=en"
               className="w-10 h-2/4 lg:w-11 lg:h-2/4 cursor-pointer"

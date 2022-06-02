@@ -78,7 +78,7 @@ const AboutMe = () => {
             remarkPlugins={[remarkGfm, remarkBreaks]}
             rehypePlugins={[rehypeRaw]}
             children={desc}
-            className=" text-gray-500 lg:max-w-3xl text-center text-xl"
+            className=" text-gray-500 lg:max-w-3xl leading-normal text-left text-xl"
           />
         </div>
       </div>
