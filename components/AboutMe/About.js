@@ -7,8 +7,8 @@ import ReactMarkdown from "react-markdown";
 
 
 const About = (props) => {
-  const source =  props.description.replace(/\n/gi, '\n &nbsp;');
-
+  // const source =  props.description.replace(/\n/gi, '\n &nbsp;');
+ const img = props.image
   return (
     <div>
       <div className="items-center lg:flex justify-evenly">
@@ -17,7 +17,7 @@ const About = (props) => {
             <div className="max-w-lg">
               <Image
                 className="object-cover object-center w-full h-64 rounded-md shadow"
-                src={props.src}
+                src={img}
                 alt="image"
                 height={650}
                 width={500}
@@ -28,14 +28,14 @@ const About = (props) => {
 
         <div className="lg:w-1/2">
           <h2 className="lg:text-7xl text-5xl font-normal lg:font-normal text-slate-700  ">
-            {props.title}
+            About Me
           </h2>
 
           <ReactMarkdown
             parserOptions={{ commonmark: true }}
             remarkPlugins={[remarkGfm, remarkBreaks]}
             rehypePlugins={[rehypeRaw]}
-            children={source}
+            children={props.description}
             className="mt-4 text-gray-500  lg:max-w-md text-xl"
           />
         </div>
