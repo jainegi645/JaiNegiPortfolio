@@ -37,9 +37,9 @@ const AboutMe = () => {
     <div>
       <Navbar />
       <section className="bg-slate-50 ">
-        <div className="container px-1  mx-auto lg:block  ">
+        <div className="container md:px-1  mx-auto lg:block px-5 ">
    
-          <div className="md:py-16 py-8">
+          <div className="md:py-16 py-8 ">
           <h2 className="lg:text-7xl text-5xl   lg:font-normal text-slate-700 ">
             About Me
           </h2>
@@ -70,7 +70,7 @@ const AboutMe = () => {
           </div>
         </div>
 
-        <div className="lg:w-1/2">
+        <div className="lg:w-1/2 pt-10">
           
 
           <ReactMarkdown
@@ -78,7 +78,7 @@ const AboutMe = () => {
             remarkPlugins={[remarkGfm, remarkBreaks]}
             rehypePlugins={[rehypeRaw]}
             children={desc}
-            className=" text-gray-500  lg:max-w-3xl text-center text-xl"
+            className=" text-gray-500 lg:max-w-3xl text-center text-xl"
           />
         </div>
       </div>
