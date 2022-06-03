@@ -4,19 +4,27 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import remarkBreaks from "remark-breaks";
 import ReactMarkdown from "react-markdown";
+import Achivement from "./Achivement";
 
-const aboutright = (props) => {
-  const source =  props.description.replace(/\n/gi, '\n &nbsp;');
+const AboutAchivement = (props) => {
+  // const source =  props.description.replace(/\n/gi, '\n &nbsp;');
 
   return (
     <>
-      <div className="items-center lg:flex justify-evenly">
-
-      <div className="lg:w-1/2">
-          <h2 className="lg:text-7xl text-5xl font-normal lg:font-normal text-slate-700  ">
-            {props.title}
-          </h2>
-
+      <div>
+      {
+        props.aboutAchivement.map((item,index) => {
+          return(
+           <Achivement
+           key={item.id}
+            src = {item.attributes.Image.data.attributes.url}
+            desc = {item.attributes.Description}
+            id = {item.id}
+            />
+          )
+        })
+      }
+      {/* <div className="lg:w-1/2">
         
           <ReactMarkdown
             parserOptions={{ commonmark: true }}
@@ -39,7 +47,7 @@ const aboutright = (props) => {
               />
             </div>
           </div>
-        </div>
+        </div> */}
 
       
 
@@ -48,4 +56,4 @@ const aboutright = (props) => {
   );
 };
 
-export default aboutright;
+export default AboutAchivement;

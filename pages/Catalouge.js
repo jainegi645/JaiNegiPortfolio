@@ -56,6 +56,7 @@ const Catalouge = () => {
     setPageNo(selected+1);
   };
 
+  
   return (
     <div>
       <Navbar />
@@ -299,7 +300,9 @@ const Catalouge = () => {
         })}
       </Masonry>
       <div className="flex flex-row justify-center py-9">
-      <ReactPaginate
+
+
+      <ReactPaginate   
           previousLabel="< previous"
           breakLabel="..."
           nextLabel="next >"
