@@ -24,7 +24,6 @@ const Catalouge = () => {
     }
   }, [router.query.filter]);
 
-
   useEffect(() => {
     const fetchCatalouge = async () => {
       let url = `https://dashboard-artist-ravi-dhar.herokuapp.com/api/catalouges?${option}&pagination[page]=${pageNo}`;
@@ -52,11 +51,10 @@ const Catalouge = () => {
   };
 
   const handlePageClick = ({ selected }) => {
-    console.log('prop from react paginate',selected);
-    setPageNo(selected+1);
+    console.log("prop from react paginate", selected);
+    setPageNo(selected + 1);
   };
 
-  
   return (
     <div>
       <Navbar />
@@ -72,8 +70,6 @@ const Catalouge = () => {
             Show nerve to utter truth to procure the ultimate ken
           </p>
         </div>
-
-
 
         <div className="md:flex md:justify-center mt-4 md:mt-0">
           <div>
@@ -279,7 +275,6 @@ const Catalouge = () => {
         </div>
       </div>
 
-
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"
@@ -299,10 +294,8 @@ const Catalouge = () => {
           );
         })}
       </Masonry>
-      <div className="flex flex-row justify-center py-9">
-
-
-      <ReactPaginate   
+      <div className="py-9">
+        <ReactPaginate
           previousLabel="< previous"
           breakLabel="..."
           nextLabel="next >"
@@ -316,9 +309,8 @@ const Catalouge = () => {
           nextLinkClassName={"nextBttn"}
           disabledClassName={"paginationDisabled"}
           activeClassName={"paginationActive"}
-        
         />
-        </div>
+      </div>
       <Fotter />
     </div>
   );
