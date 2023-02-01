@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import LiteratureCard from "../Literature/LiteratureCard";
+import LiteratureCard from "../Blogs/BlogCard";
 import { useQuery } from "react-query";
 import Link from "next/link";
 

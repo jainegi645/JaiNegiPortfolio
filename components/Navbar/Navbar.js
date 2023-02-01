@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 // import {Link} from 'react-scroll';
@@ -12,8 +12,8 @@ function Navbar() {
 
   useEffect(() => {
     console.log(router.pathname);
-  }, [])
-  
+  }, []);
+
   const router = useRouter();
   const [size, setSize] = useState(`0px`);
 
@@ -35,27 +35,38 @@ function Navbar() {
             height="50"
             width="50"
           />
-          <p className="pl-3 font-normal tracking-wider ">Artist Ravi Dhar</p>
+          <p className="pl-3 font-normal tracking-wider ">Jai Negi</p>
         </div>
 
         <ul className="hidden  md:flex ">
           <Link href="/" smooth={true} duration={1000}>
             <a className=" hover:bg-heroButton hover:shadow-xl hover:text-white rounded-sm px-5 py-2 cursor-pointer">
-              Home
+              01. Home
             </a>
           </Link>
-          <Link href="/AboutMe" smooth={true} duration={1000}>
+          <Link href="/About" smooth={true} duration={1000}>
             <a className=" hover:bg-heroButton hover:shadow-xl hover:text-white rounded-sm px-5 py-2 cursor-pointer">
-              About Me
+              02. About
             </a>
           </Link>
-
-
-          <div className="flex justify-center border-none items-center">
+          <Link href="/Work" smooth={true} duration={1000}>
+            <a className=" hover:bg-heroButton hover:shadow-xl hover:text-white rounded-sm px-5 py-2 cursor-pointer">
+              03. Work
+            </a>
+          </Link>
+          <Link href="/Blogs" smooth={true} duration={1000}>
+            <a className=" hover:bg-heroButton hover:shadow-xl hover:text-white rounded-sm px-5 py-2 cursor-pointer">
+              04. Blogs
+            </a>
+          </Link>
+          <Link href="/Exihibition" smooth={true} duration={1000}>
+            <a className=" hover:bg-heroButton hover:shadow-xl hover:text-white rounded-sm px-4 py-2 cursor-pointer">
+              05. Contact
+            </a>
+          </Link>
+          {/* <div className="flex justify-center border-none items-center">
               <div className="dropdown relative flex items-center hover:bg-heroButton px-4 py-2 cursor-pointer group">
-                <Link href="/Catalouge" smooth={true} duration={1000}>
-                  <a>Catalouge</a>
-                </Link>
+                
                 
                  
                 <button
@@ -105,10 +116,10 @@ function Navbar() {
                       onClick={() => {
                         router.push(
                           {
-                            pathname: "/Catalouge",
+                            pathname: "/Work",
                             query: { filter: "Paintings" },
                           },
-                          "/Catalouge/Paintings"
+                          "/Work/Paintings"
                         );
                       }}
                     >
@@ -134,10 +145,10 @@ function Navbar() {
                       onClick={() => {
                         router.push(
                           {
-                            pathname: "/Catalouge",
+                            pathname: "/Work",
                             query: { filter: "Portraits" },
                           },
-                          "/Catalouge/Portraits"
+                          "/Work/Portraits"
                         );
                       }}
                     >
@@ -163,10 +174,10 @@ function Navbar() {
                       onClick={() => {
                         router.push(
                           {
-                            pathname: "/Catalouge",
+                            pathname: "/Work",
                             query: { filter: "Sculptures" },
                           },
-                          "/Catalouge/Sculptures"
+                          "/Work/Sculptures"
                         );
                       }}
                     >
@@ -175,14 +186,12 @@ function Navbar() {
                   </li>
                 </ul>
               </div>
-          </div>
+          </div> */}
 
-          <div className="flex justify-center border-none items-center">
+          {/* <div className="flex justify-center border-none items-center">
             <div>
               <div className="dropdown relative  flex items-center hover:bg-heroButton px-4 py-2 cursor-pointer group">
-                <Link href="/Literature" smooth={true} duration={1000}>
-                  <a>Literature</a>
-                </Link>
+                
 
                 <button
                   className="dropdown-toggle group-hover:block  rounded-sm hover:bg-heroButton hover:shadow-xl leading-tight transition duration-150 ease-in-out flex items-center whitespace-nowrap"
@@ -299,18 +308,11 @@ function Navbar() {
                 </ul>
               </div>
             </div>
-          </div>
-
-          <Link href="/Exihibition" smooth={true} duration={1000}>
-            <a className=" hover:bg-heroButton hover:shadow-xl hover:text-white rounded-sm px-4 py-2 cursor-pointer">
-              Exihibition
-            </a>
-          </Link>
+          </div> */}
         </ul>
 
         <div className="md:hidden">
-        
-        {/* hamburger menu icon below */}
+          {/* hamburger menu icon below */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-8 w-8"
@@ -320,7 +322,6 @@ function Navbar() {
             strokeWidth={2}
             onClick={openNavbar}
             alt="mobile drawer"
-
           >
             <path
               strokeLinecap="round"
@@ -328,7 +329,6 @@ function Navbar() {
               d="M4 6h16M4 12h16M4 18h7"
             />
           </svg>
-         
         </div>
       </nav>
 
@@ -343,7 +343,7 @@ function Navbar() {
           />
         </div>
         <div className="mobileNav-header border-b-2 font-medium  ml-5 px-3 text-xl py-1 text-heroTitle">
-          Artist Ravi Dhar
+          Jai Negi
         </div>
         <nav className=" mt-2 ">
           <ul className="grid space-x-8 ">
@@ -356,13 +356,31 @@ function Navbar() {
             </div>
             <div className="flex ml-8 pt-12">
               <img src="https://img.icons8.com/material-outlined/24/000000/about.png" />
-              <Link href="/AboutMe" smooth={true} duration={1000}>
-                <a className="text-lg  pl-2">About Me</a>
+              <Link href="/About" smooth={true} duration={1000}>
+                <a className="text-lg  pl-2">About</a>
+              </Link>
+            </div>
+            <div className="flex ml-8 pt-12">
+              <img src="https://img.icons8.com/material-outlined/24/000000/about.png" />
+              <Link href="/Work" smooth={true} duration={1000}>
+                <a className="text-lg  pl-2">Work</a>
+              </Link>
+            </div>
+            <div className="flex ml-8 pt-12">
+              <img src="https://img.icons8.com/material-outlined/24/000000/about.png" />
+              <Link href="/Blogs" smooth={true} duration={1000}>
+                <a className="text-lg  pl-2">Blogs</a>
+              </Link>
+            </div>
+            <div className="flex ml-8 pt-12">
+              <img src="https://img.icons8.com/material-outlined/24/000000/about.png" />
+              <Link href="/Work" smooth={true} duration={1000}>
+                <a className="text-lg  pl-2">Contact</a>
               </Link>
             </div>
 
             {/* accordian starts here */}
-            <div
+            {/* <div
               className="accordion accordion-flush"
               id="accordionFlushExample border-b-0 "
             >
@@ -376,12 +394,12 @@ function Navbar() {
                     aria-expanded="false"
                     aria-controls="flush-collapseOne"
                     onClick={() => {
-                      router.push("/Catalouge");
+                      router.push("/Work");
                     }}
                   >
                     <img src="https://img.icons8.com/pastel-glyph/23/000000/catalog--v2.png" />
-                    <Link href="/Catalouge" smooth={true} duration={1000}>
-                      <a className="pl-2 text-lg">Catalouge</a>
+                    <Link href="/Work" smooth={true} duration={1000}>
+                      <a className="pl-2 text-lg">Work</a>
                     </Link>
                   </button>
                 </h2>
@@ -399,10 +417,10 @@ function Navbar() {
                           onClick={() => {
                             router.push(
                               {
-                                pathname: "/Catalouge",
+                                pathname: "/Work",
                                 query: { filter: "Paintings" },
                               },
-                              "/Catalouge/Paintings"
+                              "/Work/Paintings"
                             );
                           }}
                         >
@@ -418,10 +436,10 @@ function Navbar() {
                           onClick={() => {
                             router.push(
                               {
-                                pathname: "/Catalouge",
+                                pathname: "/Work",
                                 query: { filter: "Portraits" },
                               },
-                              "/Catalouge/Portraits"
+                              "/Work/Portraits"
                             );
                           }}
                         >
@@ -433,7 +451,10 @@ function Navbar() {
                 </div>
               </div>
 
-              <div className="accordion accordion-flush" id="accordionFlushExample">
+              <div
+                className="accordion accordion-flush"
+                id="accordionFlushExample"
+              >
                 <div className="accordion-item border-l-0 border-r-0 rounded-none bg-white  border-gray-200">
                   <h2 className="accordion-header mb-0" id="flush-headingThree">
                     <button
@@ -500,14 +521,14 @@ function Navbar() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
             {/* accordian ends here: */}
-            <div className="flex pt-12">
+            {/* <div className="flex pt-12">
               <img src="https://img.icons8.com/ios/24/000000/physical-gallery.png" />
               <Link href="/Exihibition" smooth={true} duration={1000}>
                 <a className="text-lg pl-2">Exihibition</a>
               </Link>
-            </div>
+            </div> */}
           </ul>
           <div className="flex pt-12 ml-7 space-x-7">
             <a
