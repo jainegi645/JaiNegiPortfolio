@@ -17,7 +17,7 @@ const Fotter = () => {
                 width="50"
               />
 
-              <span className="ml-3 text-xl text-white">Artist Ravi Dhar</span>
+              <span className="ml-3 text-xl text-white">Jai Negi</span>
             </a>
             <p className="mt-2 text-sm text-slate-300">
               Showing superiority is arrogance being inferior is ignorance
@@ -34,13 +34,13 @@ const Fotter = () => {
               </h2>
            
               <p className="text-slate-300  mb-1">
-                Email: artistravidhar.in@gmail.com
+                Email: Jai Negi.in@gmail.com
               </p>
-              <p className="text-slate-300  mb-1">Contact No: +91 9588046519</p>
+              <p className="text-slate-300  mb-1">Contact No: +91 8005619348</p>
 
               <div className="flex pt-2 justify-center md:justify-start space-x-2">
             <a
-              href="https://www.instagram.com/ravi.dhar3/?hl=en"
+              // href="https://www.instagram.com/ravi.dhar3/?hl=en"
               className="w-10 h-2/4 lg:w-11 lg:h-2/4 cursor-pointer"
               target="_blank"
             >
@@ -50,7 +50,7 @@ const Fotter = () => {
               />
             </a>
             <a
-              href="https://www.facebook.com/ravi.dhar3"
+              // href="https://www.facebook.com/ravi.dhar3"
               className="w-10 h-2/4 lg:w-11 lg:h-2/4 cursor-pointer"
               target="_blank"
             >
@@ -67,7 +67,7 @@ const Fotter = () => {
         <div className="bg-navBg">
           <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
             <p className="text-white text-sm text-center sm:text-left">
-              Copyright©2022 ArtistRaviDhar.
+              Copyright©2022 Jai Negi.
               <a
                 href="https://twitter.com/knyttneve"
                 rel="noopener noreferrer"

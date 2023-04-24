@@ -14,12 +14,12 @@ const Blogs = ({ literatures, literaturesHindi }) => {
 
   useEffect(() => {
     const fetchLiterature = async () => {
-      let url = `http://localhost:1337/api/blogs?populate=*`;
+      let url = `http://ec2-3-109-2-132.ap-south-1.compute.amazonaws.com:1337/api/blogs?populate=*`;
       let config = {
         headers: {
           Authorization:
             "Bearer " +
-            `2b936d14121a3350b1cff32e102f5dfac9ea671ac33911bc3ead8c0d7447c3b5697942befde3933fde69a81c67008e2e7e9a76da36e0318a2fee3cb50e62a106609003fe5a949e65aeed0d86777b245d69d30a378cd01ca65e747b64b63528fb04575931d23e01508789b3389637b175ba884867f17eb3ebd2d507d00dce599a`,
+            `dacf8c8342a2998f7e4e383808a6f834fd39f3d01d0777e4167a3fb20c8a716fa7677e2e782319bc12b0b891d1884eb61a97a91b3727622fa4913d06f41b3827ad54b97399b43df1a16f072f703679b8bb39b26be64a24fdd4b47a78c63ecab02bb37d8db1c81f96c64d912a4c65b2f3b00e788e76979c14b99c45161a2a090f`
         },
       };
       await axios
@@ -269,7 +269,7 @@ const Blogs = ({ literatures, literaturesHindi }) => {
                   id={item.id}
                   Title={item.attributes.Title}
                   Content={item.attributes.Content}
-                  CoverImg={item.attributes.Image.data.attributes.url}
+                  // CoverImg={item.attributes.Image.data.attributes.url}
                 />
               );
             })}

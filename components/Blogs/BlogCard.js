@@ -24,13 +24,13 @@ const BlogCard = (props) => {
             {props.Title}
           </h1>
           <div className="leading-relaxed mb-3 whitespace-normal">
-            Proident occaecat qui enim minim est dolor tempor exercitation
+            {/* Proident occaecat qui enim minim est dolor tempor exercitation
             deserunt deserunt amet. Tempor id deserunt excepteur dolor irure
             ipsum sunt deserunt eiusmod deserunt. Aliqua amet veniam cupidatat
             magna ad elit incididunt sunt nisi officia incididunt. Ad proident
             do nulla ex ut consectetur tempor non consectetur minim labore.
             Irure voluptate ea sint labore commodo ullamco exercitation officia
-            cillum. Ea voluptate ea ex ipsum.
+            cillum. Ea voluptate ea ex ipsum. */}
             <ReactMarkdown
               parserOptions={{ commonmark: true }}
               remarkPlugins={[remarkGfm, remarkBreaks]}

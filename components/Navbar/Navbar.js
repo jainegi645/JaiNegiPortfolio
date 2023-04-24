@@ -26,42 +26,42 @@ function Navbar() {
 
   return (
     <div className="">
-      <nav className="flex relative bg-navBg drop-shadow-xl text-white  top-0 justify-between items-center px-4 py-5 lg:px-14 lg:pt-4 pb-3 md:space-x-0 space-x-2">
+      <nav className=" bg-mobileHerobg font-oxygen  flex relative md:[background:linear-gradient(90deg,_#4831d4_67%,_#ccf381_67%)] text-white  top-0 justify-between items-center px-4 py-5 lg:px-14 lg:pt-4 pb-3 md:space-x-0 space-x-2">
         <div className="flex items-center ">
-          <Image
-            src={logo}
-            className=" inline-block absolute"
-            alt="logo"
-            height="50"
-            width="50"
-          />
-          <p className="pl-3 font-normal tracking-wider ">Jai Negi</p>
+            {/* <Image
+              src={logo}
+              className=" inline-block absolute"
+              alt="logo" 
+              height="50"
+              width="50"
+            /> */}
+          <p className="font-normal tracking-wider text-mobileHerobg2 ">Jai Negi</p>
         </div>
 
-        <ul className="hidden  md:flex ">
+        <ul className="hidden md:flex text-mobileHerobg ">
           <Link href="/" smooth={true} duration={1000}>
-            <a className=" hover:bg-heroButton hover:shadow-xl hover:text-white rounded-sm px-5 py-2 cursor-pointer">
-              01. Home
+            <a className=" hover:bg-mobileHerobg hover:shadow-xl text-mobileHerobg2 hover:text-white rounded-sm px-8 py-2 cursor-pointer">
+              Home
             </a>
           </Link>
           <Link href="/About" smooth={true} duration={1000}>
-            <a className=" hover:bg-heroButton hover:shadow-xl hover:text-white rounded-sm px-5 py-2 cursor-pointer">
-              02. About
+            <a className=" hover:bg-mobileHerobg hover:shadow-xl  hover:text-white rounded-sm px-5 py-2 cursor-pointer">
+            About
             </a>
           </Link>
           <Link href="/Work" smooth={true} duration={1000}>
-            <a className=" hover:bg-heroButton hover:shadow-xl hover:text-white rounded-sm px-5 py-2 cursor-pointer">
-              03. Work
+            <a className=" hover:bg-mobileHerobg hover:shadow-xl hover:text-white rounded-sm px-8  py-2 cursor-pointer">
+              Work
             </a>
           </Link>
           <Link href="/Blogs" smooth={true} duration={1000}>
-            <a className=" hover:bg-heroButton hover:shadow-xl hover:text-white rounded-sm px-5 py-2 cursor-pointer">
-              04. Blogs
+            <a className=" hover:bg-mobileHerobg hover:shadow-xl hover:text-white rounded-sm px-5 py-2 cursor-pointer">
+            Blogs
             </a>
           </Link>
           <Link href="/Exihibition" smooth={true} duration={1000}>
-            <a className=" hover:bg-heroButton hover:shadow-xl hover:text-white rounded-sm px-4 py-2 cursor-pointer">
-              05. Contact
+            <a className=" hover:bg-mobileHerobg hover:shadow-xl hover:text-white rounded-sm px-5 py-2 cursor-pointer">
+             Contact
             </a>
           </Link>
           {/* <div className="flex justify-center border-none items-center">

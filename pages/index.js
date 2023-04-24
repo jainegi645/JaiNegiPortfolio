@@ -13,12 +13,12 @@ export default function Index() {
       <div>
         <Navbar/>
         <Home />
-        {/* <AboutUs/>
-      <CatalougeHome/>
-      <LiteratureHome/> */}
+        {/* <AboutUs/> */}
+      {/* <CatalougeHome/> */}
+      {/* <LiteratureHome/> */}
       {/* <ExhibitionHome/> */}
       {/* <FullLiteraturePage/> */}
-      <Fotter/>
+      {/* <Fotter/> */}
      
       
       </div>

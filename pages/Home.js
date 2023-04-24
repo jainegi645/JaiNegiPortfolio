@@ -4,12 +4,13 @@ import CatalougeHome from "../components/Home/CatalougeHome";
 import LiteratureHome from "../components/Home/LiteratureHome";
 import ExhibitionHome from "../components/Home/ExhibitionHome";
 import Alert from "../components/Alert/Alert";
+import HeroSection2 from "../components/Home/HeroSection2";
 
 const Home = () => {
   return (
-    <div className="bg-slate-50 ">
+    <div className="">
       {/* <Alert/> */}
-      <Carousel />
+      <HeroSection2 />
     </div>
   );
 };

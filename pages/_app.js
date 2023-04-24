@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }) {
      <QueryClientProvider client={queryClient}>
       <SimpleReactLightbox>
         <Component {...pageProps} />
-        <WhatsupButton />
+        {/* <WhatsupButton /> */}
       </SimpleReactLightbox>
       </QueryClientProvider>
     </>
